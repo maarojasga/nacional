@@ -1,0 +1,632 @@
+;Posicion;Grupo;Peso% Grupo (PG);Variable;Peso% Variable (PV)
+0;Arquero;Interceptaciones;0.25;Intercepciones, %;0.7
+1;Arquero;Interceptaciones;0.25;Intercepciones acertadas;0.3
+2;Arquero;xG;0.49;Diferencia xG rival vs Goles encajados;1.0
+3;Arquero;Pases con los pies;0.25;Pases acertados, %;0.35
+4;Arquero;Pases con los pies;0.25;Pases cortos acertados, %;0.06
+5;Arquero;Pases con los pies;0.25;Pases de media distancia acertados, %;0.06
+6;Arquero;Pases con los pies;0.25;Pases largos acertados, %;0.06
+7;Arquero;Pases con los pies;0.25;Pases clave acertados;0.06
+8;Arquero;Pases con los pies;0.25;"Pases acertados con el pie
+desde pelota en movimiento, %";0.35
+9;Arquero;Pases con los pies;0.25;"Pases acertados con el pie
+desde pelota en movimiento";0.06
+10;Arquero;Otros;0.00999999999999979;Pases largos;0.0196078431372549
+11;Arquero;Otros;0.00999999999999979;"Pases con el pie
+desde pelota en movimiento";0.0196078431372549
+12;Arquero;Otros;0.00999999999999979;Penaltis atajados;0.0196078431372549
+13;Arquero;Otros;0.00999999999999979;Pases desde jugada a pelota detenida;0.0196078431372549
+14;Arquero;Otros;0.00999999999999979;Pases de media distancia;0.0196078431372549
+15;Arquero;Otros;0.00999999999999979;Remates a puerta del oponente;0.0196078431372549
+16;Arquero;Otros;0.00999999999999979;Pases con la mano;0.0196078431372549
+17;Arquero;Otros;0.00999999999999979;Faltas;0.0196078431372549
+18;Arquero;Otros;0.00999999999999979;Intercepciones;0.0196078431372549
+19;Arquero;Otros;0.00999999999999979;Pases;0.0196078431372549
+20;Arquero;Otros;0.00999999999999979;Remates del oponente;0.0196078431372549
+21;Arquero;Otros;0.00999999999999979;Goles encajados;0.0196078431372549
+22;Arquero;Otros;0.00999999999999979;Goles encajados - Penaltis;0.0196078431372549
+23;Arquero;Otros;0.00999999999999979;Pases largos acertados;0.0196078431372549
+24;Arquero;Otros;0.00999999999999979;Pases cortos acertados;0.0196078431372549
+25;Arquero;Otros;0.00999999999999979;Pases de media distancia acertados;0.0196078431372549
+26;Arquero;Otros;0.00999999999999979;Pases cortos;0.0196078431372549
+27;Arquero;Otros;0.00999999999999979;Pases clave;0.0196078431372549
+28;Arquero;Otros;0.00999999999999979;Pases acertados;0.0196078431372549
+29;Arquero;Otros;0.00999999999999979;"Pases acertados desde
+jugada a pelota detenida, %";0.0196078431372549
+30;Arquero;Otros;0.00999999999999979;"Pases acertados desde
+jugada a pelota detenida";0.0196078431372549
+31;Arquero;Otros;0.00999999999999979;Valla invicta;0.0196078431372549
+32;Arquero;Otros;0.00999999999999979;Pases acertados con la mano;0.0196078431372549
+33;Arquero;Otros;0.00999999999999979;Pases acertados con la mano, %;0.0196078431372549
+34;Arquero;Otros;0.00999999999999979;"Remates de corta
+distancia parados";0.0196078431372549
+35;Arquero;Otros;0.00999999999999979;Penaltis atajados, %;0.0196078431372549
+36;Arquero;Otros;0.00999999999999979;"Remates de corta
+distancia parados, %";0.0196078431372549
+37;Arquero;Otros;0.00999999999999979;Remates de corta distancia;0.0196078431372549
+38;Arquero;Otros;0.00999999999999979;"Remates a puerta
+de corta distancia";0.0196078431372549
+39;Arquero;Otros;0.00999999999999979;"Remates de media
+distancia parados, %";0.0196078431372549
+40;Arquero;Otros;0.00999999999999979;"Remates de larga
+distancia detenidos, %";0.0196078431372549
+41;Arquero;Otros;0.00999999999999979;Remates de larga distancia;0.0196078431372549
+42;Arquero;Otros;0.00999999999999979;"Remates de larga
+distancia parados";0.0196078431372549
+43;Arquero;Otros;0.00999999999999979;Remates de media distancia;0.0196078431372549
+44;Arquero;Otros;0.00999999999999979;"Remates de media
+distancia parados";0.0196078431372549
+45;Arquero;Otros;0.00999999999999979;"Remates a puerta
+de media distancia";0.0196078431372549
+46;Arquero;Otros;0.00999999999999979;"Remates a puerta
+de larga distancia";0.0196078431372549
+47;Arquero;Otros;0.00999999999999979;Paradas sin salto;0.0196078431372549
+48;Arquero;Otros;0.00999999999999979;"Remates detenidos con
+rebote no efectivo";0.0196078431372549
+49;Arquero;Otros;0.00999999999999979;"Remates detenidos con
+rebote no efectivo, %";0.0196078431372549
+50;Arquero;Otros;0.00999999999999979;Remates parados;0.0196078431372549
+51;Arquero;Otros;0.00999999999999979;Remates detenidos, %;0.0196078431372549
+52;Arquero;Otros;0.00999999999999979;Paradas con salto;0.0196078431372549
+53;Arquero;Otros;0.00999999999999979;"Remates detenidos con
+rebote efectivo";0.0196078431372549
+54;Arquero;Otros;0.00999999999999979;"Remates detenidos con
+rebote efectivo, %";0.0196078431372549
+55;Arquero;Otros;0.00999999999999979;Remates parados, %;0.0196078431372549
+56;Arquero;Otros;0.00999999999999979;Remates detenidos;0.0196078431372549
+57;Arquero;Otros;0.00999999999999979;Súper paradas;0.0196078431372549
+58;Arquero;Otros;0.00999999999999979;xG concedido;0.0196078431372549
+59;Arquero;Otros;0.00999999999999979;Conversión de xG del oponente;0.0196078431372549
+60;Arquero;Otros;0.00999999999999979;xG por gol concedido;0.0196078431372549
+61;Central;Duelos Aéreos;0.1;Duelos aéreos ganados, %;1.0
+62;Central;Pases;0.29;Pases acertados, %;0.3
+63;Central;Pases;0.29;Acciones exitosas por 90 min;0.13333333333333333
+64;Central;Pases;0.29;"Balones perdidos en
+campo propio por 90 min";0.13333333333333333
+65;Central;Pases;0.29;Pases acertados por 90 min;0.13333333333333333
+66;Central;Pases;0.29;Acciones exitosas, %;0.3
+67;Central;Disputas defensivas;0.25;Duelos defensivos ganados por 90 min;0.2
+68;Central;Disputas defensivas;0.25;Duelos defensivos ganados, %;0.8
+69;Central;xG;0.05;xG (Goles esperados);1.0
+70;Central;Recuperaciones;0.3;Balones recuperados por 90 min;0.2
+71;Central;Recuperaciones;0.3;Remates bloqueados por 90 min;0.03333333333333333
+72;Central;Recuperaciones;0.3;Entradas ganadas, %;0.5
+73;Central;Recuperaciones;0.3;"Balones recuperados en campo
+contrario por 90 min";0.03333333333333333
+74;Central;Recuperaciones;0.3;Entradas ganadas por 90 min;0.03333333333333333
+75;Central;Recuperaciones;0.3;Intercepciones por 90 min;0.2
+76;Central;Otros;0.01;Pases clave acertados por 90 min;0.02040816326530612
+77;Central;Otros;0.01;Pases clave por 90 min;0.02040816326530612
+78;Central;Otros;0.01;Duelos ofensivos ganados por 90 min;0.02040816326530612
+79;Central;Otros;0.01;Duelos ofensivos ganados, %;0.02040816326530612
+80;Central;Otros;0.01;Regates exitosos, %;0.02040816326530612
+81;Central;Otros;0.01;Regates exitosos por 90 min;0.02040816326530612
+82;Central;Otros;0.01;Goles por 90 min;0.02040816326530612
+83;Central;Otros;0.01;xG con marca;0.02040816326530612
+84;Central;Otros;0.01;Asistencias por 90 min;0.02040816326530612
+85;Central;Otros;0.01;Asistencias esperadas;0.02040816326530612
+86;Central;Otros;0.01;Oportunidades creadas por 90 min;0.02040816326530612
+87;Central;Otros;0.01;Oportunidades exitosas por 90 min;0.02040816326530612
+88;Central;Otros;0.01;Oportunidades, % de conversión;0.02040816326530612
+89;Central;Otros;0.01;Remates a puerta por 90 min;0.02040816326530612
+90;Central;Otros;0.01;Remates a puerta, %;0.02040816326530612
+91;Central;Otros;0.01;xG por remate;0.02040816326530612
+92;Central;Otros;0.01;Remates desviados por 90 min;0.02040816326530612
+93;Central;Otros;0.01;Duelos por 90 min;0.02040816326530612
+94;Central;Otros;0.01;Conversión de xG;0.02040816326530612
+95;Central;Otros;0.01;Tarjetas amarillas por 90 min;0.02040816326530612
+96;Central;Otros;0.01;"xG neto (xG con marca -
+xG del equipo contrincante)";0.02040816326530612
+97;Central;Otros;0.01;Faltas por 90 min;0.02040816326530612
+98;Central;Otros;0.01;Fueras de juego por 90 min;0.02040816326530612
+99;Central;Otros;0.01;Balones perdidos por 90 min;0.02040816326530612
+100;Central;Otros;0.01;Total de acciones por 90 minutos;0.02040816326530612
+101;Central;Otros;0.01;Pases por 90 min;0.02040816326530612
+102;Central;Otros;0.01;Tarjetas rojas por 90 min;0.02040816326530612
+103;Central;Otros;0.01;Penaltis anotados por 90 min;0.02040816326530612
+104;Central;Otros;0.01;Duelos ganados, %;0.02040816326530612
+105;Central;Otros;0.01;Penaltis anotados, %;0.02040816326530612
+106;Central;Otros;0.01;Penaltis cobrados por 90 min;0.02040816326530612
+107;Central;Otros;0.01;Oportunidades por 90 min;0.02040816326530612
+108;Central;Otros;0.01;Duelos defensivos por 90 min;0.02040816326530612
+109;Central;Otros;0.01;Duelos aéreos por 90 min;0.02040816326530612
+110;Central;Otros;0.01;Remates al palo por 90 min;0.02040816326530612
+111;Central;Otros;0.01;xG del oponente con marca;0.02040816326530612
+112;Central;Otros;0.01;Regates por 90 min;0.02040816326530612
+113;Central;Otros;0.01;Remates por 90 min;0.02040816326530612
+114;Central;Otros;0.01;xG defensivo por remate;0.02040816326530612
+115;Central;Otros;0.01;xG por gol;0.02040816326530612
+116;Central;Otros;0.01;"Recogidas de balón
+libre por 90 min";0.02040816326530612
+117;Central;Otros;0.01;Duelos ofensivos por 90 min;0.02040816326530612
+118;Central;Otros;0.01;Faltas recibidas por 90 min;0.02040816326530612
+119;Central;Otros;0.01;Cruces por 90 min;0.02040816326530612
+120;Central;Otros;0.01;Entradas por 90 min;0.02040816326530612
+121;Central;Otros;0.01;Duelos aéreos ganados por 90 min;0.02040816326530612
+122;Central;Otros;0.01;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.02040816326530612
+123;Central;Otros;0.01;Centros acertados, %;0.02040816326530612
+124;Central;Otros;0.01;Centros acertados por 90 min;0.02040816326530612
+125;Lateral;Disputas aéreas;0.05;Duelos aéreos ganados por 90 min;0.2
+126;Lateral;Disputas aéreas;0.05;Duelos aéreos ganados, %;0.8
+127;Lateral;Disputas defensivas;0.2;Duelos defensivos ganados por 90 min;0.2
+128;Lateral;Disputas defensivas;0.2;Duelos defensivos ganados, %;0.8
+129;Lateral;Recuperaciones;0.2;Balones recuperados por 90 min;0.2
+130;Lateral;Recuperaciones;0.2;Remates bloqueados por 90 min;0.06666666666666667
+131;Lateral;Recuperaciones;0.2;Entradas ganadas, %;0.6
+132;Lateral;Recuperaciones;0.2;"Balones recuperados en campo
+contrario por 90 min";0.06666666666666667
+133;Lateral;Recuperaciones;0.2;Entradas ganadas por 90 min;0.06666666666666667
+134;Lateral;Regates;0.15;Regates exitosos, %;0.8
+135;Lateral;Regates;0.15;Regates exitosos por 90 min;0.2
+136;Lateral;Pases;0.19;Pases acertados, %;0.3
+137;Lateral;Pases;0.19;Centros acertados, %;0.3
+138;Lateral;Pases;0.19;Acciones exitosas por 90 min;0.025
+139;Lateral;Pases;0.19;"Balones perdidos en
+campo propio por 90 min";0.025
+140;Lateral;Pases;0.19;Pases acertados por 90 min;0.025
+141;Lateral;Pases;0.19;Centros acertados por 90 min;0.025
+142;Lateral;Pases;0.19;Acciones exitosas, %;0.3
+143;Lateral;Disputas ofensivas;0.1;Duelos ofensivos ganados por 90 min;0.2
+144;Lateral;Disputas ofensivas;0.1;Duelos ofensivos ganados, %;0.8
+145;Lateral;Pases clave;0.1;Pases clave acertados por 90 min;0.2
+146;Lateral;Pases clave;0.1;Asistencias esperadas;0.8
+147;Lateral;Otros;0.00999999999999979;Goles por 90 min;0.023809523809523808
+148;Lateral;Otros;0.00999999999999979;xG con marca;0.023809523809523808
+149;Lateral;Otros;0.00999999999999979;xG (Goles esperados);0.023809523809523808
+150;Lateral;Otros;0.00999999999999979;Asistencias por 90 min;0.023809523809523808
+151;Lateral;Otros;0.00999999999999979;Oportunidades creadas por 90 min;0.023809523809523808
+152;Lateral;Otros;0.00999999999999979;Oportunidades exitosas por 90 min;0.023809523809523808
+153;Lateral;Otros;0.00999999999999979;Oportunidades, % de conversión;0.023809523809523808
+154;Lateral;Otros;0.00999999999999979;Remates a puerta por 90 min;0.023809523809523808
+155;Lateral;Otros;0.00999999999999979;Remates a puerta, %;0.023809523809523808
+156;Lateral;Otros;0.00999999999999979;xG por remate;0.023809523809523808
+157;Lateral;Otros;0.00999999999999979;Remates desviados por 90 min;0.023809523809523808
+158;Lateral;Otros;0.00999999999999979;Duelos por 90 min;0.023809523809523808
+159;Lateral;Otros;0.00999999999999979;Conversión de xG;0.023809523809523808
+160;Lateral;Otros;0.00999999999999979;Tarjetas amarillas por 90 min;0.023809523809523808
+161;Lateral;Otros;0.00999999999999979;"xG neto (xG con marca -
+xG del equipo contrincante)";0.023809523809523808
+162;Lateral;Otros;0.00999999999999979;Faltas por 90 min;0.023809523809523808
+163;Lateral;Otros;0.00999999999999979;Fueras de juego por 90 min;0.023809523809523808
+164;Lateral;Otros;0.00999999999999979;Balones perdidos por 90 min;0.023809523809523808
+165;Lateral;Otros;0.00999999999999979;Total de acciones por 90 minutos;0.023809523809523808
+166;Lateral;Otros;0.00999999999999979;Pases por 90 min;0.023809523809523808
+167;Lateral;Otros;0.00999999999999979;Tarjetas rojas por 90 min;0.023809523809523808
+168;Lateral;Otros;0.00999999999999979;Penaltis anotados por 90 min;0.023809523809523808
+169;Lateral;Otros;0.00999999999999979;Intercepciones por 90 min;0.023809523809523808
+170;Lateral;Otros;0.00999999999999979;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.023809523809523808
+171;Lateral;Otros;0.00999999999999979;Duelos ganados, %;0.023809523809523808
+172;Lateral;Otros;0.00999999999999979;Penaltis anotados, %;0.023809523809523808
+173;Lateral;Otros;0.00999999999999979;Penaltis cobrados por 90 min;0.023809523809523808
+174;Lateral;Otros;0.00999999999999979;Oportunidades por 90 min;0.023809523809523808
+175;Lateral;Otros;0.00999999999999979;Duelos defensivos por 90 min;0.023809523809523808
+176;Lateral;Otros;0.00999999999999979;Duelos aéreos por 90 min;0.023809523809523808
+177;Lateral;Otros;0.00999999999999979;Remates al palo por 90 min;0.023809523809523808
+178;Lateral;Otros;0.00999999999999979;Pases clave por 90 min;0.023809523809523808
+179;Lateral;Otros;0.00999999999999979;xG del oponente con marca;0.023809523809523808
+180;Lateral;Otros;0.00999999999999979;Regates por 90 min;0.023809523809523808
+181;Lateral;Otros;0.00999999999999979;Remates por 90 min;0.023809523809523808
+182;Lateral;Otros;0.00999999999999979;xG defensivo por remate;0.023809523809523808
+183;Lateral;Otros;0.00999999999999979;xG por gol;0.023809523809523808
+184;Lateral;Otros;0.00999999999999979;"Recogidas de balón
+libre por 90 min";0.023809523809523808
+185;Lateral;Otros;0.00999999999999979;Duelos ofensivos por 90 min;0.023809523809523808
+186;Lateral;Otros;0.00999999999999979;Faltas recibidas por 90 min;0.023809523809523808
+187;Lateral;Otros;0.00999999999999979;Cruces por 90 min;0.023809523809523808
+188;Lateral;Otros;0.00999999999999979;Entradas por 90 min;0.023809523809523808
+189;Mediocentro;Disputas aéreas;0.05;Duelos aéreos ganados por 90 min;0.2
+190;Mediocentro;Disputas aéreas;0.05;Duelos aéreos ganados, %;0.8
+191;Mediocentro;Disputas defensivas;0.15;Duelos defensivos ganados por 90 min;0.2
+192;Mediocentro;Disputas defensivas;0.15;Duelos defensivos ganados, %;0.8
+193;Mediocentro;Disputas ofensivas;0.05;Duelos ofensivos ganados por 90 min;0.2
+194;Mediocentro;Disputas ofensivas;0.05;Duelos ofensivos ganados, %;0.8
+195;Mediocentro;Recuperaciones;0.34;Balones recuperados por 90 min;0.2
+196;Mediocentro;Recuperaciones;0.34;Remates bloqueados por 90 min;0.025
+197;Mediocentro;Recuperaciones;0.34;Entradas ganadas, %;0.25
+198;Mediocentro;Recuperaciones;0.34;"Balones recuperados en campo
+contrario por 90 min";0.25
+199;Mediocentro;Recuperaciones;0.34;Intercepciones por 90 min;0.25
+200;Mediocentro;Recuperaciones;0.34;Entradas ganadas por 90 min;0.025
+201;Mediocentro;Tiros;0.05;xG (Goles esperados);1.0
+202;Mediocentro;Pases;0.25;Pases acertados, %;0.4
+203;Mediocentro;Pases;0.25;Centros acertados, %;0.04
+204;Mediocentro;Pases;0.25;Acciones exitosas por 90 min;0.04
+205;Mediocentro;Pases;0.25;"Balones perdidos en
+campo propio por 90 min";0.04
+206;Mediocentro;Pases;0.25;Pases acertados por 90 min;0.04
+207;Mediocentro;Pases;0.25;Centros acertados por 90 min;0.04
+208;Mediocentro;Pases;0.25;Acciones exitosas, %;0.4
+209;Mediocentro;Pases clave;0.05;Pases clave acertados por 90 min;0.6
+210;Mediocentro;Pases clave;0.05;Asistencias esperadas;0.4
+211;Mediocentro;Regates;0.05;Regates exitosos, %;0.8
+212;Mediocentro;Regates;0.05;Regates exitosos por 90 min;0.2
+213;Mediocentro;Otros;0.00999999999999979;Goles por 90 min;0.025
+214;Mediocentro;Otros;0.00999999999999979;xG con marca;0.025
+215;Mediocentro;Otros;0.00999999999999979;xG por remate;0.025
+216;Mediocentro;Otros;0.00999999999999979;Asistencias por 90 min;0.025
+217;Mediocentro;Otros;0.00999999999999979;Oportunidades creadas por 90 min;0.025
+218;Mediocentro;Otros;0.00999999999999979;Oportunidades exitosas por 90 min;0.025
+219;Mediocentro;Otros;0.00999999999999979;Oportunidades, % de conversión;0.025
+220;Mediocentro;Otros;0.00999999999999979;Duelos por 90 min;0.025
+221;Mediocentro;Otros;0.00999999999999979;Conversión de xG;0.025
+222;Mediocentro;Otros;0.00999999999999979;Tarjetas amarillas por 90 min;0.025
+223;Mediocentro;Otros;0.00999999999999979;"xG neto (xG con marca -
+xG del equipo contrincante)";0.025
+224;Mediocentro;Otros;0.00999999999999979;Faltas por 90 min;0.025
+225;Mediocentro;Otros;0.00999999999999979;Fueras de juego por 90 min;0.025
+226;Mediocentro;Otros;0.00999999999999979;Balones perdidos por 90 min;0.025
+227;Mediocentro;Otros;0.00999999999999979;Total de acciones por 90 minutos;0.025
+228;Mediocentro;Otros;0.00999999999999979;Pases por 90 min;0.025
+229;Mediocentro;Otros;0.00999999999999979;Tarjetas rojas por 90 min;0.025
+230;Mediocentro;Otros;0.00999999999999979;Penaltis anotados por 90 min;0.025
+231;Mediocentro;Otros;0.00999999999999979;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.025
+232;Mediocentro;Otros;0.00999999999999979;Duelos ganados, %;0.025
+233;Mediocentro;Otros;0.00999999999999979;Penaltis anotados, %;0.025
+234;Mediocentro;Otros;0.00999999999999979;Penaltis cobrados por 90 min;0.025
+235;Mediocentro;Otros;0.00999999999999979;Oportunidades por 90 min;0.025
+236;Mediocentro;Otros;0.00999999999999979;Duelos defensivos por 90 min;0.025
+237;Mediocentro;Otros;0.00999999999999979;Duelos aéreos por 90 min;0.025
+238;Mediocentro;Otros;0.00999999999999979;Remates al palo por 90 min;0.025
+239;Mediocentro;Otros;0.00999999999999979;Pases clave por 90 min;0.025
+240;Mediocentro;Otros;0.00999999999999979;xG del oponente con marca;0.025
+241;Mediocentro;Otros;0.00999999999999979;Regates por 90 min;0.025
+242;Mediocentro;Otros;0.00999999999999979;Remates por 90 min;0.025
+243;Mediocentro;Otros;0.00999999999999979;xG defensivo por remate;0.025
+244;Mediocentro;Otros;0.00999999999999979;xG por gol;0.025
+245;Mediocentro;Otros;0.00999999999999979;"Recogidas de balón
+libre por 90 min";0.025
+246;Mediocentro;Otros;0.00999999999999979;Duelos ofensivos por 90 min;0.025
+247;Mediocentro;Otros;0.00999999999999979;Faltas recibidas por 90 min;0.025
+248;Mediocentro;Otros;0.00999999999999979;Cruces por 90 min;0.025
+249;Mediocentro;Otros;0.00999999999999979;Entradas por 90 min;0.025
+250;Mediocentro;Otros;0.00999999999999979;Remates desviados por 90 min;0.025
+251;Mediocentro;Otros;0.00999999999999979;Remates a puerta por 90 min;0.025
+252;Mediocentro;Otros;0.00999999999999979;Remates a puerta, %;0.025
+253;Volante Mixto;Disputas aéreas;0.05;Duelos aéreos ganados por 90 min;0.2
+254;Volante Mixto;Disputas aéreas;0.05;Duelos aéreos ganados, %;0.8
+255;Volante Mixto;Disputas defensivas;0.125;Duelos defensivos ganados por 90 min;0.2
+256;Volante Mixto;Disputas defensivas;0.125;Duelos defensivos ganados, %;0.8
+257;Volante Mixto;Disputas ofensivas;0.125;Duelos ofensivos ganados por 90 min;0.2
+258;Volante Mixto;Disputas ofensivas;0.125;Duelos ofensivos ganados, %;0.8
+259;Volante Mixto;Recuperaciones;0.2;Balones recuperados por 90 min;0.25
+260;Volante Mixto;Recuperaciones;0.2;Remates bloqueados por 90 min;0.03333333333333333
+261;Volante Mixto;Recuperaciones;0.2;Entradas ganadas, %;0.4
+262;Volante Mixto;Recuperaciones;0.2;"Balones recuperados en campo
+contrario por 90 min";0.03333333333333333
+263;Volante Mixto;Recuperaciones;0.2;Intercepciones por 90 min;0.25
+264;Volante Mixto;Recuperaciones;0.2;Entradas ganadas por 90 min;0.03333333333333333
+265;Volante Mixto;Tiros;0.04;xG (Goles esperados);1.0
+266;Volante Mixto;Pases;0.25;Pases acertados, %;0.3
+267;Volante Mixto;Pases;0.25;Centros acertados, %;0.3
+268;Volante Mixto;Pases;0.25;Acciones exitosas por 90 min;0.025
+269;Volante Mixto;Pases;0.25;"Balones perdidos en
+campo propio por 90 min";0.025
+270;Volante Mixto;Pases;0.25;Pases acertados por 90 min;0.025
+271;Volante Mixto;Pases;0.25;Centros acertados por 90 min;0.025
+272;Volante Mixto;Pases;0.25;Acciones exitosas, %;0.3
+273;Volante Mixto;Pases clave;0.1;Pases clave acertados por 90 min;0.5
+274;Volante Mixto;Pases clave;0.1;Asistencias esperadas;0.5
+275;Volante Mixto;Regates;0.1;Regates exitosos, %;0.8
+276;Volante Mixto;Regates;0.1;Regates exitosos por 90 min;0.2
+277;Volante Mixto;Otros;0.00999999999999979;Goles por 90 min;0.025
+278;Volante Mixto;Otros;0.00999999999999979;xG con marca;0.025
+279;Volante Mixto;Otros;0.00999999999999979;xG por remate;0.025
+280;Volante Mixto;Otros;0.00999999999999979;Asistencias por 90 min;0.025
+281;Volante Mixto;Otros;0.00999999999999979;Oportunidades creadas por 90 min;0.025
+282;Volante Mixto;Otros;0.00999999999999979;Oportunidades exitosas por 90 min;0.025
+283;Volante Mixto;Otros;0.00999999999999979;Oportunidades, % de conversión;0.025
+284;Volante Mixto;Otros;0.00999999999999979;Duelos por 90 min;0.025
+285;Volante Mixto;Otros;0.00999999999999979;Conversión de xG;0.025
+286;Volante Mixto;Otros;0.00999999999999979;Tarjetas amarillas por 90 min;0.025
+287;Volante Mixto;Otros;0.00999999999999979;"xG neto (xG con marca -
+xG del equipo contrincante)";0.025
+288;Volante Mixto;Otros;0.00999999999999979;Faltas por 90 min;0.025
+289;Volante Mixto;Otros;0.00999999999999979;Fueras de juego por 90 min;0.025
+290;Volante Mixto;Otros;0.00999999999999979;Balones perdidos por 90 min;0.025
+291;Volante Mixto;Otros;0.00999999999999979;Total de acciones por 90 minutos;0.025
+292;Volante Mixto;Otros;0.00999999999999979;Pases por 90 min;0.025
+293;Volante Mixto;Otros;0.00999999999999979;Tarjetas rojas por 90 min;0.025
+294;Volante Mixto;Otros;0.00999999999999979;Penaltis anotados por 90 min;0.025
+295;Volante Mixto;Otros;0.00999999999999979;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.025
+296;Volante Mixto;Otros;0.00999999999999979;Duelos ganados, %;0.025
+297;Volante Mixto;Otros;0.00999999999999979;Penaltis anotados, %;0.025
+298;Volante Mixto;Otros;0.00999999999999979;Penaltis cobrados por 90 min;0.025
+299;Volante Mixto;Otros;0.00999999999999979;Oportunidades por 90 min;0.025
+300;Volante Mixto;Otros;0.00999999999999979;Duelos defensivos por 90 min;0.025
+301;Volante Mixto;Otros;0.00999999999999979;Duelos aéreos por 90 min;0.025
+302;Volante Mixto;Otros;0.00999999999999979;Remates al palo por 90 min;0.025
+303;Volante Mixto;Otros;0.00999999999999979;Pases clave por 90 min;0.025
+304;Volante Mixto;Otros;0.00999999999999979;xG del oponente con marca;0.025
+305;Volante Mixto;Otros;0.00999999999999979;Regates por 90 min;0.025
+306;Volante Mixto;Otros;0.00999999999999979;Remates por 90 min;0.025
+307;Volante Mixto;Otros;0.00999999999999979;xG defensivo por remate;0.025
+308;Volante Mixto;Otros;0.00999999999999979;xG por gol;0.025
+309;Volante Mixto;Otros;0.00999999999999979;"Recogidas de balón
+libre por 90 min";0.025
+310;Volante Mixto;Otros;0.00999999999999979;Duelos ofensivos por 90 min;0.025
+311;Volante Mixto;Otros;0.00999999999999979;Faltas recibidas por 90 min;0.025
+312;Volante Mixto;Otros;0.00999999999999979;Cruces por 90 min;0.025
+313;Volante Mixto;Otros;0.00999999999999979;Entradas por 90 min;0.025
+314;Volante Mixto;Otros;0.00999999999999979;Remates desviados por 90 min;0.025
+315;Volante Mixto;Otros;0.00999999999999979;Remates a puerta por 90 min;0.025
+316;Volante Mixto;Otros;0.00999999999999979;Remates a puerta, %;0.025
+317;Interior;Disputas aéreas;0.05;Duelos aéreos ganados por 90 min;0.2
+318;Interior;Disputas aéreas;0.05;Duelos aéreos ganados, %;0.8
+319;Interior;Disputas defensivas;0.05;Duelos defensivos ganados por 90 min;0.2
+320;Interior;Disputas defensivas;0.05;Duelos defensivos ganados, %;0.8
+321;Interior;Disputas ofensivas;0.15;Duelos ofensivos ganados por 90 min;0.2
+322;Interior;Disputas ofensivas;0.15;Duelos ofensivos ganados, %;0.8
+323;Interior;Recuperaciones;0.1;Balones recuperados por 90 min;0.25
+324;Interior;Recuperaciones;0.1;Remates bloqueados por 90 min;0.03333333333333333
+325;Interior;Recuperaciones;0.1;Entradas ganadas, %;0.4
+326;Interior;Recuperaciones;0.1;"Balones recuperados en campo
+contrario por 90 min";0.03333333333333333
+327;Interior;Recuperaciones;0.1;Intercepciones por 90 min;0.25
+328;Interior;Recuperaciones;0.1;Entradas ganadas por 90 min;0.03333333333333333
+329;Interior;Tiros;0.07;xG (Goles esperados);1.0
+330;Interior;Pases;0.24;Pases acertados, %;0.3
+331;Interior;Pases;0.24;Centros acertados, %;0.3
+332;Interior;Pases;0.24;Acciones exitosas por 90 min;0.025
+333;Interior;Pases;0.24;"Balones perdidos en
+campo propio por 90 min";0.025
+334;Interior;Pases;0.24;Pases acertados por 90 min;0.025
+335;Interior;Pases;0.24;Centros acertados por 90 min;0.025
+336;Interior;Pases;0.24;Acciones exitosas, %;0.3
+337;Interior;Pases clave;0.18;Pases clave acertados por 90 min;0.3
+338;Interior;Pases clave;0.18;Asistencias esperadas;0.7
+339;Interior;Regates;0.15;Regates exitosos, %;0.8
+340;Interior;Regates;0.15;Regates exitosos por 90 min;0.2
+341;Interior;Otros;0.00999999999999979;Goles por 90 min;0.025
+342;Interior;Otros;0.00999999999999979;xG con marca;0.025
+343;Interior;Otros;0.00999999999999979;xG por remate;0.025
+344;Interior;Otros;0.00999999999999979;Asistencias por 90 min;0.025
+345;Interior;Otros;0.00999999999999979;Oportunidades creadas por 90 min;0.025
+346;Interior;Otros;0.00999999999999979;Oportunidades exitosas por 90 min;0.025
+347;Interior;Otros;0.00999999999999979;Oportunidades, % de conversión;0.025
+348;Interior;Otros;0.00999999999999979;Duelos por 90 min;0.025
+349;Interior;Otros;0.00999999999999979;Conversión de xG;0.025
+350;Interior;Otros;0.00999999999999979;Tarjetas amarillas por 90 min;0.025
+351;Interior;Otros;0.00999999999999979;"xG neto (xG con marca -
+xG del equipo contrincante)";0.025
+352;Interior;Otros;0.00999999999999979;Faltas por 90 min;0.025
+353;Interior;Otros;0.00999999999999979;Fueras de juego por 90 min;0.025
+354;Interior;Otros;0.00999999999999979;Balones perdidos por 90 min;0.025
+355;Interior;Otros;0.00999999999999979;Total de acciones por 90 minutos;0.025
+356;Interior;Otros;0.00999999999999979;Pases por 90 min;0.025
+357;Interior;Otros;0.00999999999999979;Tarjetas rojas por 90 min;0.025
+358;Interior;Otros;0.00999999999999979;Penaltis anotados por 90 min;0.025
+359;Interior;Otros;0.00999999999999979;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.025
+360;Interior;Otros;0.00999999999999979;Duelos ganados, %;0.025
+361;Interior;Otros;0.00999999999999979;Penaltis anotados, %;0.025
+362;Interior;Otros;0.00999999999999979;Penaltis cobrados por 90 min;0.025
+363;Interior;Otros;0.00999999999999979;Oportunidades por 90 min;0.025
+364;Interior;Otros;0.00999999999999979;Duelos defensivos por 90 min;0.025
+365;Interior;Otros;0.00999999999999979;Duelos aéreos por 90 min;0.025
+366;Interior;Otros;0.00999999999999979;Remates al palo por 90 min;0.025
+367;Interior;Otros;0.00999999999999979;Pases clave por 90 min;0.025
+368;Interior;Otros;0.00999999999999979;xG del oponente con marca;0.025
+369;Interior;Otros;0.00999999999999979;Regates por 90 min;0.025
+370;Interior;Otros;0.00999999999999979;Remates por 90 min;0.025
+371;Interior;Otros;0.00999999999999979;xG defensivo por remate;0.025
+372;Interior;Otros;0.00999999999999979;xG por gol;0.025
+373;Interior;Otros;0.00999999999999979;"Recogidas de balón
+libre por 90 min";0.025
+374;Interior;Otros;0.00999999999999979;Duelos ofensivos por 90 min;0.025
+375;Interior;Otros;0.00999999999999979;Faltas recibidas por 90 min;0.025
+376;Interior;Otros;0.00999999999999979;Cruces por 90 min;0.025
+377;Interior;Otros;0.00999999999999979;Entradas por 90 min;0.025
+378;Interior;Otros;0.00999999999999979;Remates desviados por 90 min;0.025
+379;Interior;Otros;0.00999999999999979;Remates a puerta por 90 min;0.025
+380;Interior;Otros;0.00999999999999979;Remates a puerta, %;0.025
+381;Volante Creativo;Disputas ofensivas;0.15;Duelos ofensivos ganados por 90 min;0.2
+382;Volante Creativo;Disputas ofensivas;0.15;Duelos ofensivos ganados, %;0.8
+383;Volante Creativo;Recuperaciones;0.15;Balones recuperados por 90 min;0.03333333333333333
+384;Volante Creativo;Recuperaciones;0.15;Remates bloqueados por 90 min;0.03333333333333333
+385;Volante Creativo;Recuperaciones;0.15;Entradas ganadas, %;0.4
+386;Volante Creativo;Recuperaciones;0.15;"Balones recuperados en campo
+contrario por 90 min";0.25
+387;Volante Creativo;Recuperaciones;0.15;Intercepciones por 90 min;0.25
+388;Volante Creativo;Recuperaciones;0.15;Entradas ganadas por 90 min;0.03333333333333333
+389;Volante Creativo;Goles;0.1;Goles por 90 min;0.1
+390;Volante Creativo;Goles;0.1;xG (Goles esperados);0.9
+391;Volante Creativo;Regates;0.15;Regates exitosos, %;0.8
+392;Volante Creativo;Regates;0.15;Regates exitosos por 90 min;0.2
+393;Volante Creativo;Pases;0.24;Pases acertados, %;0.325
+394;Volante Creativo;Pases;0.24;Centros acertados, %;0.325
+395;Volante Creativo;Pases;0.24;Acciones exitosas por 90 min;0.016666666666666666
+396;Volante Creativo;Pases;0.24;"Balones perdidos en
+campo propio por 90 min";0.016666666666666666
+397;Volante Creativo;Pases;0.24;Balones perdidos por 90 min;0.1
+398;Volante Creativo;Pases;0.24;Pases acertados por 90 min;0.016666666666666666
+399;Volante Creativo;Pases;0.24;Centros acertados por 90 min;0.1
+400;Volante Creativo;Pases;0.24;Oportunidades creadas por 90 min;0.1
+401;Volante Creativo;Pases finalización;0.2;Asistencias por 90 min;0.3
+402;Volante Creativo;Pases finalización;0.2;Asistencias esperadas;0.7
+403;Volante Creativo;Otros;0.00999999999999979;Duelos aéreos ganados por 90 min;0.023809523809523808
+404;Volante Creativo;Otros;0.00999999999999979;Duelos aéreos ganados, %;0.023809523809523808
+405;Volante Creativo;Otros;0.00999999999999979;Pases clave acertados por 90 min;0.023809523809523808
+406;Volante Creativo;Otros;0.00999999999999979;Acciones exitosas, %;0.023809523809523808
+407;Volante Creativo;Otros;0.00999999999999979;Oportunidades exitosas por 90 min;0.023809523809523808
+408;Volante Creativo;Otros;0.00999999999999979;Oportunidades, % de conversión;0.023809523809523808
+409;Volante Creativo;Otros;0.00999999999999979;Duelos por 90 min;0.023809523809523808
+410;Volante Creativo;Otros;0.00999999999999979;Conversión de xG;0.023809523809523808
+411;Volante Creativo;Otros;0.00999999999999979;Tarjetas amarillas por 90 min;0.023809523809523808
+412;Volante Creativo;Otros;0.00999999999999979;"xG neto (xG con marca -
+xG del equipo contrincante)";0.023809523809523808
+413;Volante Creativo;Otros;0.00999999999999979;Faltas por 90 min;0.023809523809523808
+414;Volante Creativo;Otros;0.00999999999999979;Fueras de juego por 90 min;0.023809523809523808
+415;Volante Creativo;Otros;0.00999999999999979;xG por remate;0.023809523809523808
+416;Volante Creativo;Otros;0.00999999999999979;Total de acciones por 90 minutos;0.023809523809523808
+417;Volante Creativo;Otros;0.00999999999999979;Pases por 90 min;0.023809523809523808
+418;Volante Creativo;Otros;0.00999999999999979;Tarjetas rojas por 90 min;0.023809523809523808
+419;Volante Creativo;Otros;0.00999999999999979;Penaltis anotados por 90 min;0.023809523809523808
+420;Volante Creativo;Otros;0.00999999999999979;Remates desviados por 90 min;0.023809523809523808
+421;Volante Creativo;Otros;0.00999999999999979;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.023809523809523808
+422;Volante Creativo;Otros;0.00999999999999979;Duelos ganados, %;0.023809523809523808
+423;Volante Creativo;Otros;0.00999999999999979;Penaltis anotados, %;0.023809523809523808
+424;Volante Creativo;Otros;0.00999999999999979;Penaltis cobrados por 90 min;0.023809523809523808
+425;Volante Creativo;Otros;0.00999999999999979;Oportunidades por 90 min;0.023809523809523808
+426;Volante Creativo;Otros;0.00999999999999979;Duelos defensivos por 90 min;0.023809523809523808
+427;Volante Creativo;Otros;0.00999999999999979;Duelos aéreos por 90 min;0.023809523809523808
+428;Volante Creativo;Otros;0.00999999999999979;Remates al palo por 90 min;0.023809523809523808
+429;Volante Creativo;Otros;0.00999999999999979;Pases clave por 90 min;0.023809523809523808
+430;Volante Creativo;Otros;0.00999999999999979;xG del oponente con marca;0.023809523809523808
+431;Volante Creativo;Otros;0.00999999999999979;Regates por 90 min;0.023809523809523808
+432;Volante Creativo;Otros;0.00999999999999979;Remates por 90 min;0.023809523809523808
+433;Volante Creativo;Otros;0.00999999999999979;xG defensivo por remate;0.023809523809523808
+434;Volante Creativo;Otros;0.00999999999999979;xG por gol;0.023809523809523808
+435;Volante Creativo;Otros;0.00999999999999979;"Recogidas de balón
+libre por 90 min";0.023809523809523808
+436;Volante Creativo;Otros;0.00999999999999979;Duelos ofensivos por 90 min;0.023809523809523808
+437;Volante Creativo;Otros;0.00999999999999979;Faltas recibidas por 90 min;0.023809523809523808
+438;Volante Creativo;Otros;0.00999999999999979;Cruces por 90 min;0.023809523809523808
+439;Volante Creativo;Otros;0.00999999999999979;Entradas por 90 min;0.023809523809523808
+440;Volante Creativo;Otros;0.00999999999999979;Duelos defensivos ganados por 90 min;0.023809523809523808
+441;Volante Creativo;Otros;0.00999999999999979;Duelos defensivos ganados, %;0.023809523809523808
+442;Volante Creativo;Otros;0.00999999999999979;xG con marca;0.023809523809523808
+443;Volante Creativo;Otros;0.00999999999999979;Remates a puerta por 90 min;0.023809523809523808
+444;Volante Creativo;Otros;0.00999999999999979;Remates a puerta, %;0.023809523809523808
+445;Extremo;Disputas ofensivas;0.15;Duelos ofensivos ganados por 90 min;0.2
+446;Extremo;Disputas ofensivas;0.15;Duelos ofensivos ganados, %;0.8
+447;Extremo;Recuperaciones;0.2;Balones recuperados por 90 min;0.03333333333333333
+448;Extremo;Recuperaciones;0.2;Remates bloqueados por 90 min;0.03333333333333333
+449;Extremo;Recuperaciones;0.2;Entradas ganadas, %;0.4
+450;Extremo;Recuperaciones;0.2;"Balones recuperados en campo
+contrario por 90 min";0.25
+451;Extremo;Recuperaciones;0.2;Intercepciones por 90 min;0.25
+452;Extremo;Recuperaciones;0.2;Entradas ganadas por 90 min;0.03333333333333333
+453;Extremo;Goles;0.1;Goles por 90 min;0.1
+454;Extremo;Goles;0.1;xG (Goles esperados);0.9
+455;Extremo;Regates;0.2;Regates exitosos, %;0.5
+456;Extremo;Regates;0.2;Faltas recibidas por 90 min;0.4
+457;Extremo;Regates;0.2;Regates exitosos por 90 min;0.1
+458;Extremo;Pases;0.19;Pases acertados, %;0.15
+459;Extremo;Pases;0.19;Centros acertados, %;0.5
+460;Extremo;Pases;0.19;Acciones exitosas por 90 min;0.025
+461;Extremo;Pases;0.19;"Balones perdidos en
+campo propio por 90 min";0.025
+462;Extremo;Pases;0.19;Balones perdidos por 90 min;0.025
+463;Extremo;Pases;0.19;Pases acertados por 90 min;0.025
+464;Extremo;Pases;0.19;Centros acertados por 90 min;0.1
+465;Extremo;Pases;0.19;Oportunidades creadas por 90 min;0.15
+466;Extremo;Pases finalización;0.15;Asistencias por 90 min;0.2
+467;Extremo;Pases finalización;0.15;Asistencias esperadas;0.8
+468;Extremo;Otros;0.00999999999999979;Duelos aéreos ganados por 90 min;0.024390243902439025
+469;Extremo;Otros;0.00999999999999979;Duelos aéreos ganados, %;0.024390243902439025
+470;Extremo;Otros;0.00999999999999979;Pases clave acertados por 90 min;0.024390243902439025
+471;Extremo;Otros;0.00999999999999979;Acciones exitosas, %;0.024390243902439025
+472;Extremo;Otros;0.00999999999999979;Oportunidades exitosas por 90 min;0.024390243902439025
+473;Extremo;Otros;0.00999999999999979;Oportunidades, % de conversión;0.024390243902439025
+474;Extremo;Otros;0.00999999999999979;Duelos por 90 min;0.024390243902439025
+475;Extremo;Otros;0.00999999999999979;Conversión de xG;0.024390243902439025
+476;Extremo;Otros;0.00999999999999979;Tarjetas amarillas por 90 min;0.024390243902439025
+477;Extremo;Otros;0.00999999999999979;"xG neto (xG con marca -
+xG del equipo contrincante)";0.024390243902439025
+478;Extremo;Otros;0.00999999999999979;Faltas por 90 min;0.024390243902439025
+479;Extremo;Otros;0.00999999999999979;Fueras de juego por 90 min;0.024390243902439025
+480;Extremo;Otros;0.00999999999999979;xG por remate;0.024390243902439025
+481;Extremo;Otros;0.00999999999999979;Total de acciones por 90 minutos;0.024390243902439025
+482;Extremo;Otros;0.00999999999999979;Pases por 90 min;0.024390243902439025
+483;Extremo;Otros;0.00999999999999979;Tarjetas rojas por 90 min;0.024390243902439025
+484;Extremo;Otros;0.00999999999999979;Penaltis anotados por 90 min;0.024390243902439025
+485;Extremo;Otros;0.00999999999999979;Remates desviados por 90 min;0.024390243902439025
+486;Extremo;Otros;0.00999999999999979;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.024390243902439025
+487;Extremo;Otros;0.00999999999999979;Duelos ganados, %;0.024390243902439025
+488;Extremo;Otros;0.00999999999999979;Penaltis anotados, %;0.024390243902439025
+489;Extremo;Otros;0.00999999999999979;Penaltis cobrados por 90 min;0.024390243902439025
+490;Extremo;Otros;0.00999999999999979;Oportunidades por 90 min;0.024390243902439025
+491;Extremo;Otros;0.00999999999999979;Duelos defensivos por 90 min;0.024390243902439025
+492;Extremo;Otros;0.00999999999999979;Duelos aéreos por 90 min;0.024390243902439025
+493;Extremo;Otros;0.00999999999999979;Remates al palo por 90 min;0.024390243902439025
+494;Extremo;Otros;0.00999999999999979;Pases clave por 90 min;0.024390243902439025
+495;Extremo;Otros;0.00999999999999979;xG del oponente con marca;0.024390243902439025
+496;Extremo;Otros;0.00999999999999979;Regates por 90 min;0.024390243902439025
+497;Extremo;Otros;0.00999999999999979;Remates por 90 min;0.024390243902439025
+498;Extremo;Otros;0.00999999999999979;xG defensivo por remate;0.024390243902439025
+499;Extremo;Otros;0.00999999999999979;xG por gol;0.024390243902439025
+500;Extremo;Otros;0.00999999999999979;"Recogidas de balón
+libre por 90 min";0.024390243902439025
+501;Extremo;Otros;0.00999999999999979;Duelos ofensivos por 90 min;0.024390243902439025
+502;Extremo;Otros;0.00999999999999979;Cruces por 90 min;0.024390243902439025
+503;Extremo;Otros;0.00999999999999979;Entradas por 90 min;0.024390243902439025
+504;Extremo;Otros;0.00999999999999979;Duelos defensivos ganados por 90 min;0.024390243902439025
+505;Extremo;Otros;0.00999999999999979;Duelos defensivos ganados, %;0.024390243902439025
+506;Extremo;Otros;0.00999999999999979;xG con marca;0.024390243902439025
+507;Extremo;Otros;0.00999999999999979;Remates a puerta por 90 min;0.024390243902439025
+508;Extremo;Otros;0.00999999999999979;Remates a puerta, %;0.024390243902439025
+509;Delantero;Goles;0.44;Goles por 90 min;0.25
+510;Delantero;Goles;0.44;xG (Goles esperados);0.5
+511;Delantero;Goles;0.44;xG por remate;0.25
+512;Delantero;Disputas aéreas;0.1;Duelos aéreos ganados por 90 min;0.2
+513;Delantero;Disputas aéreas;0.1;Duelos aéreos ganados, %;0.8
+514;Delantero;Regates;0.1;Regates exitosos, %;0.8
+515;Delantero;Regates;0.1;Regates exitosos por 90 min;0.2
+516;Delantero;Pases;0.1;Pases acertados, %;0.3
+517;Delantero;Pases;0.1;Centros acertados, %;0.3
+518;Delantero;Pases;0.1;Acciones exitosas por 90 min;0.025
+519;Delantero;Pases;0.1;"Balones perdidos en
+campo propio por 90 min";0.025
+520;Delantero;Pases;0.1;Pases acertados por 90 min;0.025
+521;Delantero;Pases;0.1;Centros acertados por 90 min;0.025
+522;Delantero;Pases;0.1;Acciones exitosas, %;0.3
+523;Delantero;Disputas ofensivas;0.15;Duelos ofensivos ganados por 90 min;0.3
+524;Delantero;Disputas ofensivas;0.15;Duelos ofensivos ganados, %;0.7
+525;Delantero;Pases finalización;0.1;Asistencias por 90 min;0.2
+526;Delantero;Pases finalización;0.1;Asistencias esperadas;0.6
+527;Delantero;Pases finalización;0.1;Pases clave acertados por 90 min;0.2
+528;Delantero;Otros;0.01;Oportunidades creadas por 90 min;0.022222222222222223
+529;Delantero;Otros;0.01;Oportunidades exitosas por 90 min;0.022222222222222223
+530;Delantero;Otros;0.01;Duelos por 90 min;0.022222222222222223
+531;Delantero;Otros;0.01;Conversión de xG;0.022222222222222223
+532;Delantero;Otros;0.01;Tarjetas amarillas por 90 min;0.022222222222222223
+533;Delantero;Otros;0.01;"xG neto (xG con marca -
+xG del equipo contrincante)";0.022222222222222223
+534;Delantero;Otros;0.01;Faltas por 90 min;0.022222222222222223
+535;Delantero;Otros;0.01;Fueras de juego por 90 min;0.022222222222222223
+536;Delantero;Otros;0.01;Balones perdidos por 90 min;0.022222222222222223
+537;Delantero;Otros;0.01;Total de acciones por 90 minutos;0.022222222222222223
+538;Delantero;Otros;0.01;Pases por 90 min;0.022222222222222223
+539;Delantero;Otros;0.01;Tarjetas rojas por 90 min;0.022222222222222223
+540;Delantero;Otros;0.01;Penaltis anotados por 90 min;0.022222222222222223
+541;Delantero;Otros;0.01;Intercepciones por 90 min;0.022222222222222223
+542;Delantero;Otros;0.01;"xG defensivo (xG de los remates
+hechos por el jugador marcado)";0.022222222222222223
+543;Delantero;Otros;0.01;Duelos ganados, %;0.022222222222222223
+544;Delantero;Otros;0.01;Penaltis anotados, %;0.022222222222222223
+545;Delantero;Otros;0.01;Penaltis cobrados por 90 min;0.022222222222222223
+546;Delantero;Otros;0.01;Oportunidades por 90 min;0.022222222222222223
+547;Delantero;Otros;0.01;Duelos defensivos por 90 min;0.022222222222222223
+548;Delantero;Otros;0.01;Duelos aéreos por 90 min;0.022222222222222223
+549;Delantero;Otros;0.01;Remates al palo por 90 min;0.022222222222222223
+550;Delantero;Otros;0.01;Pases clave por 90 min;0.022222222222222223
+551;Delantero;Otros;0.01;xG del oponente con marca;0.022222222222222223
+552;Delantero;Otros;0.01;Regates por 90 min;0.022222222222222223
+553;Delantero;Otros;0.01;Remates por 90 min;0.022222222222222223
+554;Delantero;Otros;0.01;xG defensivo por remate;0.022222222222222223
+555;Delantero;Otros;0.01;xG por gol;0.022222222222222223
+556;Delantero;Otros;0.01;"Recogidas de balón
+libre por 90 min";0.022222222222222223
+557;Delantero;Otros;0.01;Duelos ofensivos por 90 min;0.022222222222222223
+558;Delantero;Otros;0.01;Faltas recibidas por 90 min;0.022222222222222223
+559;Delantero;Otros;0.01;Cruces por 90 min;0.022222222222222223
+560;Delantero;Otros;0.01;Entradas por 90 min;0.022222222222222223
+561;Delantero;Otros;0.01;Balones recuperados por 90 min;0.022222222222222223
+562;Delantero;Otros;0.01;Remates bloqueados por 90 min;0.022222222222222223
+563;Delantero;Otros;0.01;Entradas ganadas, %;0.022222222222222223
+564;Delantero;Otros;0.01;"Balones recuperados en campo
+contrario por 90 min";0.022222222222222223
+565;Delantero;Otros;0.01;Entradas ganadas por 90 min;0.022222222222222223
+566;Delantero;Otros;0.01;Duelos defensivos ganados por 90 min;0.022222222222222223
+567;Delantero;Otros;0.01;Duelos defensivos ganados, %;0.022222222222222223
+568;Delantero;Otros;0.01;xG con marca;0.022222222222222223
+569;Delantero;Otros;0.01;Remates desviados por 90 min;0.022222222222222223
+570;Delantero;Otros;0.01;Oportunidades, % de conversión;0.022222222222222223
+571;Delantero;Otros;0.01;Remates a puerta por 90 min;0.022222222222222223
+572;Delantero;Otros;0.01;Remates a puerta, %;0.022222222222222223
