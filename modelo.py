@@ -399,7 +399,7 @@ def base_arqueros():
     
     df['Age']=df['Age'].astype(float).astype(int)
     df=df[df['Age']>0]
-    df["xG conceded - Goals conceded"]=df['xG conceded']-df['Goals conceded']
+    df["xG conceded - Goals conceded"]=df['xG conceded'].astype(float)-df['Goals conceded'].astype(float)
     w.rename(index={np.NaN:"xG conceded - Goals conceded"},inplace=True)
     df[w.index.tolist()]=df[w.index.tolist()].apply(pd.to_numeric,errors='coerce')
    

@@ -54,7 +54,7 @@ def app():
         if ('--Buscar--' not in posicion) and (len(leagues) != 0) and (len(df)!=0):
 
             min_minutes = st.number_input('Minimo de minutos jugados', min_value=90, max_value=int(df['Minutes played'].max())-1)
-            df = df[df['Minutes played'] >= min_minutes]
+            df = df[df['Minutes played'].astype(float) >= min_minutes]
             lst_nationalities = sorted(list({name for a in df.index.get_level_values('Nationality').unique().tolist() for name in a.split(', ')}))
             bool_nationality = st.checkbox('¿Filtrar por nacionalidad?')
 
