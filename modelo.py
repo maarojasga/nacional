@@ -893,7 +893,7 @@ def dream_team(tactic, df, df_gk, season, leagues, min_minutes, nationality, age
                 if '--All--' not in nationality:
                     df_pos =df_pos[df_pos.index.get_level_values('Nationality').str.contains(nationality, na=False)]
                 df_pos =df_pos[(df_pos['Age'] >= int(age[0])) & (df_pos['Age'] <= int(age[-1]))]
-                st.write(Xp_ranking(df_pos, weight=w, d_metric=dict_metrics[dict_metrics_pos[position]]).sort_values('Xp Ranking'))
+                #st.write(Xp_ranking(df_pos, weight=w, d_metric=dict_metrics[dict_metrics_pos[position]]).sort_values('Xp Ranking').astype(str))
                 df_pos = Xp_ranking(df_pos, weight=w, d_metric=dict_metrics[dict_metrics_pos[position]]).sort_values('Xp Ranking')[:dict_tactics[tactic][line].count(position)]
                 df_pos['Tactic position'] = position
                 df_team = df_team.append(df_pos)

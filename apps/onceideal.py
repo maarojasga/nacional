@@ -33,7 +33,7 @@ def app():
     if ('--All--' not in leagues) and (len(leagues)!=0):
         df_copy =df_copy[df_copy['League'].isin(leagues)]
         df_gk = df_gk[df_gk['League'].isin(leagues)]
-    with st.beta_expander('Filtros adicionales'):
+    with st.expander('Filtros adicionales'):
         min_minutes = st.number_input('Minimo de minutos jugados', min_value=90, max_value=int(max([df_copy['Minutes played'].max(), df_gk['Minutes played'].max()]))-1)
         df_copy =df_copy[df_copy['Minutes played'] >= min_minutes]
         df_gk = df_gk[df_gk['Minutes played'] >= min_minutes]

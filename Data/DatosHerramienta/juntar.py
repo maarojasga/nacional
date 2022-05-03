@@ -118,7 +118,9 @@ arqueros.drop(indicessa,inplace=True)
 
 # Los uno y los exporto
 jugadores=jugadores.append(jugadores_m,ignore_index=True)
+jugadores['Minutes played']=jugadores['Minutes played'].astype(float)
 arqueros=arqueros.append(arqueros_m,ignore_index=True)
+arqueros['Minutes played']=arqueros['Minutes played'].astype(float)
 jugadores.to_csv(f'../Jugadores2510.csv', sep=';', decimal=',', na_rep='-', encoding="utf-8")
 arqueros.to_csv(f'../Arqueros2510.csv', sep=';', decimal=',', na_rep='-', encoding="utf-8")
 
