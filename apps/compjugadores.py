@@ -44,12 +44,10 @@ def app():
     df = df[~df.index.get_level_values('Nationality').str.contains('0', na=False)]
     df = df[~df.index.get_level_values('Team').str.contains('0', na=False)]
     df_raw = copy.deepcopy(df)
-    min_minutes = st.slider('Minimo de minutos jugados', min_value=90,max_value=int(df_raw['Minutes played'].max())-1)
-    df_raw = df_raw[df_raw['Minutes played'].astype(float) >= min_minutes]
-    df_raw2 = copy.deepcopy(df_raw)
+
     if bool_arqueros:
         df[w.index.tolist()]=df[w.index.tolist()].apply(pd.to_numeric,errors='coerce')
-    percentile(df_raw2)
+    #percentile(df_raw2)
 
     n_search = st.number_input('¿Cuantos jugadores va a comparar?', min_value=1, max_value=10)
     df_radar = pd.DataFrame()
@@ -57,14 +55,26 @@ def app():
         df_selection = search_options(n+1, df)
 
         if len(df_selection)!=0:
-            x = df_raw2[(df_raw2['Season'].isin(list(df_selection['Season'].unique()))) &\
-             (df_raw2['League'].isin(list(df_selection['League'].unique()))) &\
-                  (df_raw2.index.get_level_values('Name').isin(df_selection.index.get_level_values('Name').unique().tolist()))]
-            df_radar = df_radar.append(x)
+            df_radar = df_radar.append(df_selection)
     
     if len(df_radar)!=0:
         st.write("""## Parámetros de gráficas""")
         N_variables = st.slider('Número de variables en radar', 5,12)
+
+        min_minutes = st.slider('Minimo de minutos jugados',\
+            min_value=90,max_value=int(df_raw[(df_raw['Season'].isin(list(df_selection['Season'].unique()))) &\
+            (df_raw['League'].isin(list(df_selection['League'].unique())))]['Minutes played'].max())-1)
+        df_raw = df_raw[df_raw['Minutes played'].astype(float) >= min_minutes]
+        df_raw2 = copy.deepcopy(df_raw)
+        percentile(df_raw2)
+
+        df_radar_final = pd.DataFrame()
+
+        df_selection_final = df_raw2[(df_raw2['Season'].isin(list(df_selection['Season'].unique()))) &\
+            (df_raw2['League'].isin(list(df_selection['League'].unique()))) &\
+                (df_raw2.index.get_level_values('Name').isin(df_selection.index.get_level_values('Name').unique().tolist()))]
+
+        df_radar_final = df_radar_final.append(df_selection_final)
 
         if not bool_arqueros:
             lista_posiciones = sorted(list(posiciones.keys()))
@@ -74,9 +84,9 @@ def app():
             if '--Buscar--' not in posicion:
                 w = weights(posiciones[posicion])
                 w.rename(index = {'xG per shot taken':'xG per shot'}, inplace = True)
-    
-                radar_streamlit(df_radar, df_raw2, posiciones[posicion], w, N_variables)
+                        
+                radar_streamlit(df_radar_final, df_raw2, posiciones[posicion], w, N_variables)
 
 
         else:
-            radar_streamlit(df_radar, df_raw2, posiciones[posicion], w, N_variables)
+            radar_streamlit(df_radar_final, df_raw2, posiciones[posicion], w, N_variables)
