@@ -63,18 +63,22 @@ def app():
 
         min_minutes = st.slider('Minimo de minutos jugados',\
             min_value=90,max_value=int(df_raw[(df_raw['Season'].isin(list(df_selection['Season'].unique()))) &\
-            (df_raw['League'].isin(list(df_selection['League'].unique())))]['Minutes played'].max())-1)
-        df_raw = df_raw[df_raw['Minutes played'].astype(float) >= min_minutes]
+            (df_raw['League'].isin(list(df_selection['League'].unique()))) &\
+                (df_raw.index.get_level_values('Name').isin(df_selection.index.get_level_values('Name').unique().tolist()))]\
+                    ['Minutes played'].max())-1)
+
+        df_raw = df_raw[df_raw['Minutes played'] >= min_minutes]
         df_raw2 = copy.deepcopy(df_raw)
         percentile(df_raw2)
 
         df_radar_final = pd.DataFrame()
 
-        df_selection_final = df_raw2[(df_raw2['Season'].isin(list(df_selection['Season'].unique()))) &\
-            (df_raw2['League'].isin(list(df_selection['League'].unique()))) &\
-                (df_raw2.index.get_level_values('Name').isin(df_selection.index.get_level_values('Name').unique().tolist()))]
+        df_selection_final = df_raw2[(df_raw2['Season'].isin(list(df_radar['Season'].unique()))) &\
+            (df_raw2['League'].isin(list(df_radar['League'].unique()))) &\
+                (df_raw2.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
 
         df_radar_final = df_radar_final.append(df_selection_final)
+        print(df_radar_final)
 
         if not bool_arqueros:
             lista_posiciones = sorted(list(posiciones.keys()))
