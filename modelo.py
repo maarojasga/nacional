@@ -588,7 +588,9 @@ def table_streamlit(df, position):
 
 def radar_streamlit(df_radar, df_raw, position, w, N_variables):
     try:
-        df_raw = df_raw[(df_raw['Season'].isin(list(df_radar['Season'].unique()))) & (df_raw['League'].isin(list(df_radar['League'].unique()))) & (df_raw.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
+        df_raw = df_raw[(df_raw['Season'].isin(list(df_radar['Season'].unique()))) &\
+             (df_raw['League'].isin(list(df_radar['League'].unique()))) &\
+                  (df_raw.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
         df_radar.set_index('League', append=True, inplace=True)
         df_raw.set_index('League', append=True, inplace=True)
         df_radar.set_index('Season', append=True, inplace=True)
@@ -607,7 +609,9 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
         df_radar_all = df_radar.loc[:,all_variables]
         df_radar = df_radar.loc[:,variables]
     ax.fill_between(np.linspace(0, 2*np.pi, 100), 0.495, 0.505, color='#ed2054', zorder=10)
-    pct50_legend = plt.legend(handles=[Line2D([0], [0], marker='o', color='#000000', label='Percentil 50', markeredgewidth=1.5, markeredgecolor='#ed2054', markersize=14)], bbox_to_anchor=(1.35, 0.05), loc='lower right', fontsize=12)
+    pct50_legend = plt.legend(handles=[Line2D([0], [0], marker='o', color='#000000', label='Percentil 50',\
+     markeredgewidth=1.5, markeredgecolor='#ed2054', markersize=14)], bbox_to_anchor=(1.35, 0.05),\
+      loc='lower right', fontsize=12)
     plt.gca().add_artist(pct50_legend)
     N = len(variables)
     angles = [n / float(N) * 2 * np.pi for n in range(N)]
