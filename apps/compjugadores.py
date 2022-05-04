@@ -61,13 +61,23 @@ def app():
         st.write("""## Parámetros de gráficas""")
         N_variables = st.slider('Número de variables en radar', 5,12)
 
+        #min_minutes = st.slider('Minimo de minutos jugados',\
+        #    min_value=90,max_value=int(df_raw[(df_raw['Season'].isin(list(df_selection['Season'].unique()))) &\
+        #    (df_raw['League'].isin(list(df_selection['League'].unique()))) &\
+        #        (df_raw.index.get_level_values('Name').isin(df_selection.index.get_level_values('Name').unique().tolist()))]\
+        #            ['Minutes played'].max())-1)
+
         min_minutes = st.slider('Minimo de minutos jugados',\
             min_value=90,max_value=int(df_raw[(df_raw['Season'].isin(list(df_selection['Season'].unique()))) &\
-            (df_raw['League'].isin(list(df_selection['League'].unique()))) &\
-                (df_raw.index.get_level_values('Name').isin(df_selection.index.get_level_values('Name').unique().tolist()))]\
-                    ['Minutes played'].max())-1)
+            (df_raw['League'].isin(list(df_selection['League'].unique())))]['Minutes played'].max())-1)
 
         df_raw = df_raw[df_raw['Minutes played'] >= min_minutes]
+
+        print(df_selection)
+        print(df_selection['Minutes played'].min())
+
+        if df_selection['Minutes played'].min()<min_minutes:
+            df_raw = df_raw.append(df_selection)
         df_raw2 = copy.deepcopy(df_raw)
         percentile(df_raw2)
 
