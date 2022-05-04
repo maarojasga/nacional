@@ -730,12 +730,7 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
             """)
         st.dataframe(df_radar)
         download_button(df_radar, f'percentiles.xlsx', f'Descargar tabla', pickle_it=False)
-        #try:
-        #    download_button(df_radar, f'percentiles.xlsx', f'Descargar tabla', pickle_it=False)
-        #except:
-        #    st.write("""
-        #    > No existen jugadores con esa cantidad de minutos jugados
-        #    """)
+        
     if 'arquero' not in position:
         try:
             df_radar_all = df_radar_all[['Xp Score', 'PCT promedio defensivo', 'PCT promedio ofensivo']]
