@@ -149,6 +149,7 @@ def app():
 
                 # Finalmente se muestra el radar y/o tabla de estadísticas para los jugadores seleccionados
                 radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
+                #radar_streamlit_escoger(df_radar, df_raw, posiciones[posicion], w)
 
         else:
             radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)

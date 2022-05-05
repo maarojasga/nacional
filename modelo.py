@@ -665,8 +665,8 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
         if pct_ad_weighted:
             for i, row in df_radar_all.iterrows():
                 str_p = " ponderado (segun el peso por posición de las variables)"
-                df_radar_all.loc[i,'PCT promedio ofensivo'] = (w[attack_variables].multiply(row[attack_variables]).sum()/w[attack_variables].sum())*100
-                df_radar_all.loc[i,'PCT promedio defensivo'] = (w[defense_variables].multiply(row[defense_variables]).sum()/w[defense_variables].sum())*100
+                df_radar_all.loc[i,'PCT promedio ofensivo'] = (w[attack_variables].astype(float).multiply(row[attack_variables].astype(float)).sum()/w[attack_variables].sum())*100
+                df_radar_all.loc[i,'PCT promedio defensivo'] = (w[defense_variables].astype(float).multiply(row[defense_variables].astype(float)).sum()/w[defense_variables].sum())*100
         else:
             for i, row in df_radar_all.iterrows():
                 str_p = " "
@@ -695,7 +695,7 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
             else:
                 col = 0
 
-            c_code = cmap_colors(0.4+0.6*pct_value)
+            c_code = cmap_colors(0.4+0.6*float(pct_value))
 
             h_line = ax[row,col].hlines(0, 0, 1, color='#545454', linewidth=8, zorder=1)
 
@@ -707,9 +707,173 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
             ax[row,col].add_patch(circle_50)
             ax[row,col].add_patch(circle_100)
 
-            circle = plt.Circle((pct_value, 0), radius=.1, color=c_code, linewidth=2, zorder=100, alpha=0.7)
+            circle = plt.Circle((float(pct_value), 0), radius=.1, color=c_code, linewidth=2, zorder=100, alpha=0.7)
             ax[row,col].add_patch(circle)
-            number = ax[row,col].annotate(round(pct_value*100,1), xy=(pct_value, 0), color='black', fontsize=20, weight='bold', ha="center", va="center", zorder=1000)
+            number = ax[row,col].annotate(round(float(pct_value)*100,1), xy=(float(pct_value), 0), color='black', fontsize=20, weight='bold', ha="center", va="center", zorder=1000)
+            label = ax[row,col].annotate(list_pct_name[n], xy=(0, 0.11), color='white', fontsize=20, ha="left", va="center", zorder=10000)
+
+            ax[row,col].axis('off')
+            ax[row,col].set_aspect('equal')
+            ax[row,col].autoscale_view()
+
+        if N_variables%2 != 0:
+            ax[row,1].axis('off')
+            ax[row,1].set_aspect('equal')
+            ax[row,1].autoscale_view()
+
+        plt.subplots_adjust(top=0.964,bottom=0.015,left=0.008,right=0.992,hspace=0.6,wspace=0.0)
+        st.pyplot(fig_pctl)
+    else:
+        st.write("""
+            ### Tabla de percentiles
+            > Percentiles de acuerdo a la base de **todas** las ligas objetivo de Atl. Nacional.
+            """)
+        st.dataframe(df_radar)
+        download_button(df_radar, f'percentiles.xlsx', f'Descargar tabla', pickle_it=False)
+        
+    if 'arquero' not in position:
+        try:
+            df_radar_all = df_radar_all[['Xp Score', 'PCT promedio defensivo', 'PCT promedio ofensivo']]
+        except:
+            df_radar_all = df_radar_all[['PCT promedio defensivo', 'PCT promedio ofensivo']]
+        st.write("""
+            ### Tabla de percentiles ofensivo y defensivo
+            > Promedio{} de los percentiles de las variables defensivas y ofensivas.
+            """.format(str_p))
+        st.dataframe(df_radar_all)
+        download_button(df_radar_all, f'percentiles_of_def.xlsx', f'Descargar tabla', pickle_it=False)
+    st.write("""
+        ### Tabla de valores
+        > Totales acumulados por 90 minutos.
+        """)
+    st.dataframe(df_raw)
+    download_button(df_raw, f'valores.xlsx', f'Descargar tabla', pickle_it=False)
+
+def radar_streamlit_escoger(df_radar, df_raw, position, w):
+    try:
+        df_raw = df_raw[(df_raw['Season'].isin(list(df_radar['Season'].unique()))) &\
+             (df_raw['League'].isin(list(df_radar['League'].unique()))) &\
+                  (df_raw.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
+        df_radar.set_index('League', append=True, inplace=True)
+        df_raw.set_index('League', append=True, inplace=True)
+        df_radar.set_index('Season', append=True, inplace=True)
+        df_raw.set_index('Season', append=True, inplace=True)
+    except:
+        pass
+    fig_radar = plt.figure()
+    ax = fig_radar.add_subplot(111, polar=True)
+    v = w[list(dict_var_rad[position])].sort_values(ascending = False).index.tolist()
+    variables = st.multiselect('Seleccione las variables que quiere observar',options=v)
+
+    all_variables = w.sort_values(ascending = False).index.tolist()
+    try:
+        df_radar_all = df_radar.loc[:,all_variables+['Xp Ranking', 'Xp Score']]
+        df_radar = df_radar.loc[:, variables+['Xp Ranking']]
+    except:
+        df_radar_all = df_radar.loc[:,all_variables]
+        df_radar = df_radar.loc[:,variables]
+    ax.fill_between(np.linspace(0, 2*np.pi, 100), 0.495, 0.505, color='#ed2054', zorder=10)
+    pct50_legend = plt.legend(handles=[Line2D([0], [0], marker='o', color='#000000', label='Percentil 50',\
+     markeredgewidth=1.5, markeredgecolor='#ed2054', markersize=14)], bbox_to_anchor=(1.35, 0.05),\
+      loc='lower right', fontsize=12)
+    plt.gca().add_artist(pct50_legend)
+    N = len(variables)
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]
+    if 'arquero' not in position:
+        variables_spn = [dict_translate_players[v] for v in variables]
+    else:
+        variables_spn = [dict_translate_gk[v] for v in variables]
+    plt.xticks(angles[:-1], variables_spn, size=10)
+    labels = [item.get_text() for item in ax.get_yticklabels()]
+    ax.set_yticklabels(['']*len(labels))
+    color_nacional = ['#00bc2f', '#b7e000', '#d6820d', '#c1c1c1', '#4a6b48', '#d6820d']
+    cl = 0
+    for index, row in df_radar.iterrows():
+        values=row[variables].tolist()
+        values += values[:1]
+        if len(df_radar.index.get_level_values('Name').tolist()) != len(set(df_radar.index.get_level_values('Name').tolist())):
+            try:
+                name_label = '#{} - {} ({})\n{} ({})'.format(int(row['Xp Ranking']), index[0], index[2], index[-2], index[-1])
+            except:
+                name_label = '{} ({})\n{} ({})'.format(index[0], index[2], index[-2], index[-1])
+        else:
+            try:
+                name_label = '#{} - {} ({})'.format(int(row['Xp Ranking']), index[0], index[2])
+            except:
+                try:
+                    name_label = '{} ({})'.format(index[0], index[2])
+                except:
+                    name_label = '{} ({})'.format(index[0], index[1])
+        if 'Atl. Nacional' in name_label:
+            ax.plot(angles, values, linewidth=1, linestyle='solid', label=name_label, color=color_nacional[cl])
+            ax.fill(angles, values, alpha=0.6, color=color_nacional[cl])
+            cl = cl+1
+        else:
+            ax.plot(angles, values, linewidth=1, linestyle='solid', label=name_label)
+            ax.fill(angles, values, alpha=0.6)
+    plt.legend(bbox_to_anchor=(1.08, 1), loc='upper left', fontsize=12)
+    st.write("""
+        # Radar Xp Ranking
+        ## {}
+        ###
+        """.format(dict_pos[position]))
+    st.pyplot(fig_radar)
+
+    df_raw = df_raw.loc[df_radar.index,variables]
+    if 'arquero' not in position:
+        df_od = pd.read_excel('variables_ad.xlsx', engine='openpyxl')
+        attack_variables = df_od[(df_od['A/D o B'] == 'A') | (df_od['A/D o B'] == 'B')]['Variable'].to_list()
+        defense_variables = df_od[(df_od['A/D o B'] == 'D') | (df_od['A/D o B'] == 'B')]['Variable'].to_list()
+        pct_ad_weighted = True
+        if pct_ad_weighted:
+            for i, row in df_radar_all.iterrows():
+                str_p = " ponderado (segun el peso por posición de las variables)"
+                df_radar_all.loc[i,'PCT promedio ofensivo'] = (w[attack_variables].astype(float).multiply(row[attack_variables].astype(float)).sum()/w[attack_variables].sum())*100
+                df_radar_all.loc[i,'PCT promedio defensivo'] = (w[defense_variables].astype(float).multiply(row[defense_variables].astype(float)).sum()/w[defense_variables].sum())*100
+        else:
+            for i, row in df_radar_all.iterrows():
+                str_p = " "
+                df_radar_all.loc[i,'PCT promedio ofensivo'] = (row[attack_variables].sum()/len(row[attack_variables]))*100
+                df_radar_all.loc[i,'PCT promedio defensivo'] = (row[defense_variables].sum()/len(row[attack_variables]))*100
+        df_raw.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
+        df_radar.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
+        df_radar_all.rename(columns={v: dict_translate_players[v] for v in all_variables}, inplace=True)
+    else:
+        df_raw.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
+        df_radar.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
+        df_radar_all.rename(columns={v: dict_translate_gk[v] for v in all_variables}, inplace=True)
+    if len(df_radar) == 1:
+        st.write("""
+                ***
+                """)
+        cmap_colors = mpl.cm.get_cmap('winter')
+        list_pct_value = values[:-1]#[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.88345, 0.9, 0.910, 0.911, 0.912]
+        list_pct_name = variables_spn#['Vancune nsdiufb enfuwef\ngfghghg', 'BUI NIUBBBB', 'bdcuwevf bwefwe fbwey\nvnde ndeiwu', 'nxuisn ewnweic', 'wcnenuciwn wecnecnce ecnwecn', 'suiwdh ediuh', 'asuid duie', 'wdehi wdiu', 'xnxwh denu nd ndd', "JAbde BSAA", 'ncid cni', 'ncwe']
+
+        fig_pctl, ax = plt.subplots(math.ceil(len(variables)/2), 2, figsize=(18,9))
+        for n, pct_value in enumerate(list_pct_value[:N_variables]):
+            row = math.floor((n)/2)
+            if (n+1)%2 == 0:
+                col = 1
+            else:
+                col = 0
+
+            c_code = cmap_colors(0.4+0.6*float(pct_value))
+
+            h_line = ax[row,col].hlines(0, 0, 1, color='#545454', linewidth=8, zorder=1)
+
+            circle_0 = plt.Circle((0, 0), radius=.04, color='#545454', zorder=1)
+            circle_50 = plt.Circle((0.5, 0), radius=.04, color='#545454', zorder=1)
+            circle_100 = plt.Circle((1, 0), radius=.04, color='#545454', zorder=1)
+
+            ax[row,col].add_patch(circle_0)
+            ax[row,col].add_patch(circle_50)
+            ax[row,col].add_patch(circle_100)
+
+            circle = plt.Circle((float(pct_value), 0), radius=.1, color=c_code, linewidth=2, zorder=100, alpha=0.7)
+            ax[row,col].add_patch(circle)
+            number = ax[row,col].annotate(round(float(pct_value)*100,1), xy=(pct_value, 0), color='black', fontsize=20, weight='bold', ha="center", va="center", zorder=1000)
             label = ax[row,col].annotate(list_pct_name[n], xy=(0, 0.11), color='white', fontsize=20, ha="left", va="center", zorder=10000)
 
             ax[row,col].axis('off')
