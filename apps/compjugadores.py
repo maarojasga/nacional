@@ -100,7 +100,7 @@ def app():
         if not bool_arqueros:
             list_pos = list(dict_positions.keys())
             list_pos.insert(0,'--Buscar--')
-            filt_posicion = st.selectbox('Escriba o seleccione la posición de juego por la que desa filtrar',\
+            filt_posicion = st.selectbox('Escriba o seleccione la posición de juego por la que desea filtrar',\
                 list_pos)
             if '--Buscar--' not in filt_posicion:
                 df_raw_sl = df_raw_sl[df_raw_sl['Position']==dict_positions[filt_posicion]]
