@@ -1,6 +1,16 @@
-import streamlit as st
-from modelo import *
 import pdb
+from modelo import *
+import streamlit as st
+
+dict_positions = {'Central':'CD',
+                  'Lateral Derecho':'RD',
+                  'Lateral Izquierdo':'LD',
+                  'Volante Derecho':'RM',
+                  'Volante Izquierdo':'LM',
+                  'Volante Defensivo':'DM',
+                  'Volante Central':'CM',
+                  'Delantero':'F'}
+
 
 def search_options(n, df_in):
     """
@@ -10,17 +20,22 @@ def search_options(n, df_in):
     Retorna data frame con resultados de búsqueda.
     """
     df_temp = copy.deepcopy(df_in)
+    df_temp2 = copy.deepcopy(df_in)
     with st.expander(f'Buscar jugador {n}'):
+        # Se filtra data frame de entrada por temporada
         list_seasons = sorted(list(df_temp['Season'].unique()), reverse=True)
         season = st.selectbox('Escriba o seleccione la temporada', list_seasons, key=str(n))
-        # Se filtra data frame de entrada por temporada
         df_temp = df_temp[df_temp['Season'].isin([season])]
-        league = st.selectbox('Liga', sorted(list(df_temp['League'].unique())), key=str(n+10))
+        df_temp2 = df_temp2[df_temp2['Season'].isin([season])]
+
         # Se filtra data frame de entrada por liga
+        league = st.selectbox('Liga', sorted(list(df_temp['League'].unique())), key=str(n+10))
         df_temp = df_temp[df_temp['League'].isin([league])]
+        df_temp2 = df_temp2[df_temp2['League'].isin([league])]
+        
+        # Se filtra data frame de entrada por equipo
         team = st.selectbox('Equipo', sorted(df_temp.index.get_level_values('Team').unique().tolist()),\
              key=str(n+10000))
-        # Se filtra data frame de entrada por equipo
         df_temp = df_temp[df_temp.index.get_level_values('Team').isin([team])]
         list_names = sorted(df_temp.index.get_level_values('Name').unique().tolist())
         list_names.insert(0, '--Buscar--')
@@ -28,9 +43,10 @@ def search_options(n, df_in):
         # Se filtra data frame de entrada por nombre
         if '--Buscar--' not in pl_name:
             df_temp = df_temp[df_temp.index.get_level_values('Name').isin([pl_name])]
-            return df_temp
+            return df_temp, df_temp2
         else:
-            return pd.DataFrame()
+            return pd.DataFrame(), pd.DataFrame()
+
 def app():
     """
     Corre la pestaña de Comparar Jugadores en X Scout
@@ -54,6 +70,7 @@ def app():
         df["xG conceded - Goals conceded"]=df['xG conceded']-df['Goals conceded']
     else:
         df = copy.deepcopy(df_ju)
+
     # Procesamiento de base de datos
     df = df[~df['League'].isin(['---'])]
     df = df[~df.index.get_level_values('Nationality').str.contains('0', na=False)]
@@ -69,7 +86,7 @@ def app():
     df_selec_temp = pd.DataFrame()
 
     for n in range(0,n_search):
-        df_selection = search_options(n+1, df)
+        df_selection, df_raw_sl = search_options(n+1, df_raw)
 
         if len(df_selection)!=0:
             # Se guarda la selección del usuario
@@ -79,37 +96,46 @@ def app():
     # En este bloque se filtra la base de datos global para realizar las comparaciones
     if len(df_radar)==n_search:
         st.write("""## Parámetros de gráficas""")
-        # Se selecciona el número de variables para realizar la comparación
-        N_variables = st.slider('Número de variables en radar', 5,12)
+
+        if not bool_arqueros:
+            list_pos = list(dict_positions.keys())
+            list_pos.insert(0,'--Buscar--')
+            filt_posicion = st.selectbox('Escriba o seleccione la posición de juego por la que desa filtrar',\
+                list_pos)
+            if '--Buscar--' not in filt_posicion:
+                df_raw_sl = df_raw_sl[df_raw_sl['Position']==dict_positions[filt_posicion]]
 
         # Se guarda la información del filtro de mínimo de minutos jugados
         min_minutes = st.slider('Minimo de minutos jugados',\
-            min_value=90,max_value=int(df_raw[(df_raw['Season'].isin(list(df_selection['Season'].unique()))) &\
-            (df_raw['League'].isin(list(df_selection['League'].unique())))]['Minutes played'].max())-1)
+            min_value=90,max_value=int(df_raw_sl['Minutes played'].max())-1)
+
+        # Se selecciona el número de variables para realizar la comparación
+        N_variables = st.slider('Número de variables en radar', 5,12)
 
         # Filtramos base de datos global para que únicamente incluya jugadores que tengan >= minutos que
         # la cantidad seleccionada
-        df_raw = df_raw[df_raw['Minutes played'] >= min_minutes]
+        df_raw_sl = df_raw_sl[df_raw_sl['Minutes played'] >= min_minutes]
 
         # Para evitar eliminar a los jugadores que el usuario busca pero que no cumplen con el parámetro
         # de minutos jugados, los agregamos a la base de datos de nuevo.
         if df_selec_temp['Minutes played'].min()<min_minutes:
-            df_raw = df_raw.append(df_selec_temp[df_selec_temp['Minutes played']<min_minutes])
-        df_raw2 = copy.deepcopy(df_raw)
+            df_raw_sl= df_raw_sl.append(df_selec_temp[df_selec_temp['Minutes played']<min_minutes])
+
+        if not (df_selec_temp.index.get_level_values('Name').unique().isin(df_raw_sl.index.get_level_values('Name').unique().to_list())[0]):
+            df_raw_sl = df_raw_sl.append(df_selec_temp)
+
+        df_raw_sl = df_raw_sl.drop_duplicates()
+        df_raw_final = copy.deepcopy(df_raw_sl)
 
         # Se obtienen percentiles de la base de datos filtrada
-        percentile(df_raw2)
+        percentile(df_raw_final)
 
         # Se guardan en un data frame únicamente los jugadores seleccionados
         df_radar_final = pd.DataFrame()
-
-        df_selection_final = df_raw2[(df_raw2['Season'].isin(list(df_radar['Season'].unique()))) &\
-            (df_raw2['League'].isin(list(df_radar['League'].unique()))) &\
-                (df_raw2.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
-
+        df_selection_final = df_raw_final[(df_raw_final.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
         df_radar_final = df_radar_final.append(df_selection_final)
 
-        # Se selecciona la posición para realizar la comparación
+        # Se selecciona la posición para obtener pesos
         if not bool_arqueros:
             lista_posiciones = sorted(list(posiciones.keys()))
             lista_posiciones.insert(0,'--Buscar--')
@@ -117,11 +143,12 @@ def app():
             posicion = st.selectbox('Escriba o seleccione la posición de juego', lista_posiciones)
 
             if '--Buscar--' not in posicion:
+                # Se obtienen los pesos
                 w = weights(posiciones[posicion])
                 w.rename(index = {'xG per shot taken':'xG per shot'}, inplace = True)
-                # Finalmente se muestra el radar y/o tabla de estadísticas para los jugadores seleccionados
-                radar_streamlit(df_radar_final, df_raw2, posiciones[posicion], w, N_variables)
 
+                # Finalmente se muestra el radar y/o tabla de estadísticas para los jugadores seleccionados
+                radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
 
         else:
-            radar_streamlit(df_radar_final, df_raw2, posiciones[posicion], w, N_variables)
+            radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
