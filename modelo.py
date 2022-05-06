@@ -354,7 +354,7 @@ for key, value in dict_var_rad_esp.items():
 @st.cache
 def base_jugadores():
 
-    df = pd.read_csv('Data/Jugadores2510.csv',header=0,delimiter=';',decimal=',',na_values='-',encoding="utf-8")
+    df = pd.read_csv('Data/base_jugadores.csv',header=0,delimiter=',',decimal='.',na_values='-',encoding="utf-8")
     if 'Unnamed: 0' in df.columns:
         df.drop(columns=['Unnamed: 0'],inplace=True)
     df = df.loc[~df.Name.str.contains('H. Palacios',na=True)]
@@ -369,14 +369,17 @@ def base_jugadores():
     df=df[df['Age']>0]
 
     for col in df.columns:
-        if col.find('%') !=-1:
-            df[col]=df[col].str.rstrip('%').astype('float').fillna(0)/100.0
+    #    if col.find('%') !=-1:
+    #        df[col]=df[col].str.rstrip('%').astype('float').fillna(0)/100.0
         if col in per90_var_lst:
             try:
                 df[col] = (df[col]/min_played)*90
             except:
                 print('Division por 0')
             df.rename(columns={col: str(col)+' per 90 min'}, inplace=True)
+
+    df.to_csv('Prueba.csv')
+
     return df
 
 @st.cache
@@ -384,7 +387,7 @@ def base_arqueros():
 
     posicion='Arquero'
     w = weights(posiciones[posicion])
-    df = pd.read_csv('Data/Arqueros2510.csv',header=0,delimiter=';',decimal=',',na_values='-',encoding="utf-8")
+    df = pd.read_csv('Data/base_arqueros.csv',header=0,delimiter=',',decimal='.',na_values='-',encoding="utf-8")
     df.drop(columns=['Unnamed: 0'],inplace=True)
     df = df.loc[~df.Name.str.contains('H. Palacios',na=True)]
     df['Nationality']=df['Nationality'].fillna('---')
@@ -393,9 +396,9 @@ def base_arqueros():
     df = df.fillna(0)
     df['Season'] = df['Season'].astype(int).astype(str)
     
-    for col in df.columns:
-        if col.find('%') !=-1:
-            df[col]=df[col].str.rstrip('%').astype('float').fillna(0)/100.0
+    #for col in df.columns:
+    #    if col.find('%') !=-1:
+    #        df[col]=df[col].str.rstrip('%').astype('float').fillna(0)/100.0
     
     df['Age']=df['Age'].astype(float).astype(int)
     df=df[df['Age']>0]
