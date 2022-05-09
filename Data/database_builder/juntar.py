@@ -18,7 +18,7 @@ ligas={
     'Peru.PrimeraDivision':'Perú - Primera División',
     'Uruguay.PrimeraDivisionApertura':'Uruguay - Primera División',
     'Uruguay.PrimeraDivisionClausura':'Uruguay - Primera División',
-    'Venezuela.PrimeraDIvision':'Venezuela - Primera División',
+    'Venezuela.PrimeraDivision':'Venezuela - Primera División',
     'UnitedStates.MLS':'Estados Unidos - MLS',
     'Argentina.CopadelaLigaProfesional':'Argentina - Copa de la Liga Profesional',
     'France.Ligue1':'Francia - Ligue 1',
@@ -54,7 +54,15 @@ for lig in ligas.keys():
             j['Season']=20212
         else:
             j['Season']=2022
+        
+        for col in j.columns:
+            if '%' in col:
+                j[col] = j[col].replace(to_replace='-',value=0)
+                j[col]=float(j[col].str.rstrip('%').astype('float').fillna(0)/100.0)
+        
         jugadores_m=jugadores_m.append(j,ignore_index=True)
+
+
     except Exception as e:
         print("No existe el archivo {}".format(filej.format(lig)))
         print(str(e))
