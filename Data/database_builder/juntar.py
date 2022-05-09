@@ -25,7 +25,6 @@ ligas={
     'Spain.SegundaDivision':'España - Segunda División',
     'Chile.primeraB':'Chile - Primera B',
     'LigaPortugal': 'Portugal - Liga Portugal'
-
 }
 
 #Leer los archivos con las ligas pasadas
