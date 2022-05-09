@@ -99,8 +99,6 @@ def app():
             # Se guarda la selección del usuario
             df_radar = df_radar.append(df_selection)
             df_selec_temp = df_selec_temp.append(copy.deepcopy(df_selection))
-    
-    print(df_selection)
 
     # En este bloque se filtra la base de datos global para realizar las comparaciones
     if len(df_radar)==n_search:
@@ -141,7 +139,7 @@ def app():
 
         # Se guardan en un data frame únicamente los jugadores seleccionados
         df_radar_final = pd.DataFrame()
-        df_selection_final = df_raw_final[(df_raw_final.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
+        df_selection_final = df_raw_final[(df_raw_final.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))&(df_raw_final.index.get_level_values('Team').isin(df_radar.index.get_level_values('Team').unique().tolist()))]
         df_radar_final = df_radar_final.append(df_selection_final)
 
         # Se selecciona la posición para obtener pesos
