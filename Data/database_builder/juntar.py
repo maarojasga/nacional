@@ -23,7 +23,9 @@ ligas={
     'Argentina.CopadelaLigaProfesional':'Argentina - Copa de la Liga Profesional',
     'France.Ligue1':'Francia - Ligue 1',
     'Spain.SegundaDivision':'España - Segunda División',
-    'Chile.primeraB':'Chile - Primera B'
+    'Chile.primeraB':'Chile - Primera B',
+    'LigaPortugal': 'Portugal - Liga Portugal'
+
 }
 
 #Leer los archivos con las ligas pasadas
