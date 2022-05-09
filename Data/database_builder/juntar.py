@@ -27,7 +27,7 @@ ligas={
 }
 
 #Leer los archivos con las ligas pasadas
-jugadores=pd.read_csv('jugadores_prev.csv', header=0, delimiter=',', decimal='.', na_values='-', encoding="utf-8")
+jugadores = pd.read_csv('jugadores_prev.csv', header=0, delimiter=',', decimal='.', na_values='-', encoding="utf-8")
 arqueros = pd.read_csv('arqueros_prev.csv', header=0, delimiter=',', decimal='.', na_values='-', encoding="utf-8")
 jugadores.drop(columns=['Column1'],inplace=True)
 arqueros.drop(columns=['Column1'],inplace=True)
@@ -43,19 +43,20 @@ jugadores_m = pd.DataFrame(columns=jugadores.columns.tolist())
 arqueros_m = pd.DataFrame(columns=arqueros.columns.tolist())
 
 for lig in ligas.keys():
-    #try:
-    print(filej.format(lig))
-    j = pd.read_excel(filej.format(lig),na_values='-')
-    j.rename(columns={'Unnamed: 0':'Number','Unnamed: 1':'Name','Сhances created':'Chances created','Penalties\n scored':'Penalties scored',"Opponent's penalties saved, %":"Penalties saved, %","Opponent's penalties conceded":"Goals conceded - Penalties","Opponent's penalties saved":"Penalties saved"},inplace=True)
-    
-    j['League']=ligas[lig]
-    if (lig=='Uruguay.PrimeraDivisionClausura')|(lig=='Mexico.LigaBBVAExpansion'):
-        j['Season']=20221
-    elif (lig=='Brazil.BrasileiroSerieA')|(lig=='Brazil.BrasileiroSerieB')|(lig=='UnitedStates.MLS'):
-        j['Season']=2022
-    else:
-        j['Season']=2022
-    jugadores_m=jugadores_m.append(j,ignore_index=True)
+    try:
+        print(filej.format(lig))
+        j = pd.read_excel(filej.format(lig),na_values='-')
+        j.rename(columns={'Unnamed: 0':'Number','Unnamed: 1':'Name','Сhances created':'Chances created','Penalties\n scored':'Penalties scored',"Opponent's penalties saved, %":"Penalties saved, %","Opponent's penalties conceded":"Goals conceded - Penalties","Opponent's penalties saved":"Penalties saved"},inplace=True)
+        
+        j['League']=ligas[lig]
+        if (lig=='Uruguay.PrimeraDivisionClausura'):
+            j['Season']=20212
+        else:
+            j['Season']=2022
+        jugadores_m=jugadores_m.append(j,ignore_index=True)
+    except Exception as e:
+        print("No existe el archivo {}".format(filej.format(lig)))
+        print(str(e))
 
     try:
         print(filea.format(lig))
@@ -63,9 +64,7 @@ for lig in ligas.keys():
         a.rename(columns={'Unnamed: 0':'Number','Unnamed: 1':'Name',"Opponent's penalties saved, %":"Penalties saved, %","Opponent's penalties conceded":"Goals conceded - Penalties","Opponent's penalties saved":"Penalties saved"},inplace=True)
         a['League']=ligas[lig]
         if lig=='Uruguay.PrimeraDivisionClausura':
-            a['Season']=20221
-        elif (lig=='Brazil.BrasileiroSerieA')|(lig=='Brazil.BrasileiroSerieB')|(lig=='UnitedStates.MLS'):
-            a['Season']=2022
+            a['Season']=20212
         else:
             a['Season']=2022
         arqueros_m=arqueros_m.append(a,ignore_index=True)
@@ -108,12 +107,12 @@ arqueros_m['Team']=arqueros_m['Team'].fillna('---')
 arqueros_m['Goals conceded']=arqueros_m['Goals conceded'].astype(float).tolist()
 
 # Borro todo lo que sea de 2021 antes de añadir los nuevos 
-indicesj = jugadores[(jugadores['League'].isin(list(ligas.values()))) & (jugadores['Season']==2021)].index
+indicesj = jugadores[(jugadores['League'].isin(list(ligas.values()))) & (jugadores['Season']==2022)].index
 indicessj= jugadores[jugadores['Season']==20212].index
 jugadores.drop(indicesj,inplace=True)
 jugadores.drop(indicessj,inplace=True)
 
-indicesa=arqueros[(arqueros['League'].isin(list(ligas.values()))) & (arqueros['Season']==2021)].index
+indicesa=arqueros[(arqueros['League'].isin(list(ligas.values()))) & (arqueros['Season']==2022)].index
 arqueros.drop(indicesa,inplace=True)
 indicessa=arqueros[arqueros['Season']==20212].index
 arqueros.drop(indicessa,inplace=True)

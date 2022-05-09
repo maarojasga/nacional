@@ -21,23 +21,27 @@ def search_options(n, df_in):
     """
     df_temp = copy.deepcopy(df_in)
     df_temp2 = copy.deepcopy(df_in)
+
     with st.expander(f'Buscar jugador {n}'):
         # Se filtra data frame de entrada por temporada
         list_seasons = sorted(list(df_temp['Season'].unique()), reverse=True)
         list_seasons.insert(0,'--Buscar--')
         season = st.selectbox('Escriba o seleccione la temporada', list_seasons, key=str(n))
         if '--Buscar--' not in season:
-            df_temp = df_temp[df_temp['Season'].isin([season])]
-            df_temp2 = df_temp2[df_temp2['Season'].isin([season])]
+            df_temp = df_temp[df_temp['Season']==season]
+            df_temp2 = df_temp2[df_temp2['Season']==season]
 
         # Se filtra data frame de entrada por liga
-        league = st.selectbox('Liga', sorted(list(df_temp['League'].unique())), key=str(n+10))
-        df_temp = df_temp[df_temp['League'].isin([league])]
-        df_temp2 = df_temp2[df_temp2['League'].isin([league])]
+        list_leagues = sorted(list(df_temp['League'].unique()), reverse=False)
+        list_leagues.insert(0,'--Buscar--')
+        league = st.selectbox('Escriba o seleccione la Liga', list_leagues, key=str(n+10))
+        df_temp = df_temp[df_temp['League']==league]
+        df_temp2 = df_temp2[df_temp2['League']==league]
         
         # Se filtra data frame de entrada por equipo
-        team = st.selectbox('Equipo', sorted(df_temp.index.get_level_values('Team').unique().tolist()),\
-             key=str(n+10000))
+        list_teams = sorted(list(df_temp.index.unique(level='Team')), reverse=False)
+        list_teams.insert(0,'--Buscar--')
+        team = st.selectbox('Equipo', list_teams,key=str(n+10000))
         df_temp = df_temp[df_temp.index.get_level_values('Team').isin([team])]
         list_names = sorted(df_temp.index.get_level_values('Name').unique().tolist())
         list_names.insert(0, '--Buscar--')
@@ -62,7 +66,6 @@ def app():
     # Se carga la base de datos de los jugadores y de los arqueros
     df_ju = base_jugadores()
     df_gk = base_arqueros()
-    pdb.set_trace()
 
     # Condicional para modificar base de datos de arqueros
     if bool_arqueros:
@@ -79,6 +82,7 @@ def app():
     df = df[~df.index.get_level_values('Nationality').str.contains('0', na=False)]
     df = df[~df.index.get_level_values('Team').str.contains('0', na=False)]
     df_raw = copy.deepcopy(df)
+    print(df_raw.columns)
 
     if bool_arqueros:
         df[w.index.tolist()]=df[w.index.tolist()].apply(pd.to_numeric,errors='coerce')
@@ -90,11 +94,13 @@ def app():
 
     for n in range(0,n_search):
         df_selection, df_raw_sl = search_options(n+1, df_raw)
-
+        print(df_selection)
         if len(df_selection)!=0:
             # Se guarda la selección del usuario
             df_radar = df_radar.append(df_selection)
             df_selec_temp = df_selec_temp.append(copy.deepcopy(df_selection))
+    
+    print(df_selection)
 
     # En este bloque se filtra la base de datos global para realizar las comparaciones
     if len(df_radar)==n_search:
