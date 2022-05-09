@@ -4,7 +4,7 @@ import streamlit as st
 import os
 
 def app():
-    modificationTime = time.strftime('%d / %m / %Y', time.localtime(os.path.getmtime('Data/Jugadores2510.csv')))
+    modificationTime = time.strftime('%d / %m / %Y', time.localtime(os.path.getmtime('Data/base_jugadores.csv')))
     st.write("""
     #
     #
