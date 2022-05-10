@@ -28,6 +28,7 @@ equipos_dim={
     'Aguilas Doradas':'AGU',
     'Deportivo Pereira':'PER'
 }
+
 def simulate_match(foot_model,xG_local,xG_perm_local, xG_visitante,xG_perm_visitante,casa=True, max_goals=5):
     if casa==True:
         home_goals_avg = foot_model.predict(pd.DataFrame(data={'cumxG_propio': xG_local,  'cumxG_contrario_equipo2':xG_perm_visitante,'Home':1},index=[1])).values[0]
@@ -200,7 +201,7 @@ def app():
             probas_futuras=probas_futuras.merge(xgs.rename(columns={'cumxG_propio':'team2_xG','cumxG_contrario':'team2_xG_op'}),how='left',left_on='team2_name',right_on='team_name')
             probas_futuras=probas_futuras.drop(columns=['team_name'])
             probas_futuras[['Prob L','Prob E','Prob V']]=np.round(probas_futuras.apply(lambda x: probabilidades(x['team1_xG'],x['team1_xG_op'],x['team2_xG'],x['team2_xG_op']),axis=1),2)
-            probas_futuras[['match_date','team1_name','team2_name','Prob L','Prob E','Prob V']].to_excel('Probabilidades3103.xlsx')
+            probas_futuras[['match_date','team1_name','team2_name','Prob L','Prob E','Prob V']].to_excel('probabilidades_futuras.xlsx')
             probas_futuras['Prob L']=(np.round(probas_futuras['Prob L']*100,2)).astype(str)+'%'
             probas_futuras['Prob E']=(np.round(probas_futuras['Prob E']*100,2)).astype(str)+'%'
             probas_futuras['Prob V']=(np.round(probas_futuras['Prob V']*100,2)).astype(str)+'%'

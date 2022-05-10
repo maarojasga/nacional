@@ -82,7 +82,7 @@ def app():
     df = df[~df.index.get_level_values('Nationality').str.contains('0', na=False)]
     df = df[~df.index.get_level_values('Team').str.contains('0', na=False)]
     df_raw = copy.deepcopy(df)
-    print(df_raw.columns)
+    df_raw_sl = copy.deepcopy(df_raw)
 
     if bool_arqueros:
         df[w.index.tolist()]=df[w.index.tolist()].apply(pd.to_numeric,errors='coerce')
@@ -93,8 +93,8 @@ def app():
     df_selec_temp = pd.DataFrame()
 
     for n in range(0,n_search):
-        df_selection, df_raw_sl = search_options(n+1, df_raw)
-        print(df_selection)
+        df_selection, _ = search_options(n+1, df_raw)
+        #df_raw = df_raw[(df_raw['Season']==sea)&(df_raw['League'].isin(lea))]
         if len(df_selection)!=0:
             # Se guarda la selección del usuario
             df_radar = df_radar.append(df_selection)
@@ -103,7 +103,8 @@ def app():
     # En este bloque se filtra la base de datos global para realizar las comparaciones
     if len(df_radar)==n_search:
         st.write("""## Parámetros de gráficas""")
-
+        df_raw_sl = df_raw_sl[df_raw_sl['Season'].isin(df_radar['Season'].unique().tolist())&df_raw_sl['League'].isin(df_radar['League'].unique().tolist())]
+        print(df_raw_sl['League'].unique())
         if not bool_arqueros:
             list_pos = list(dict_positions.keys())
             list_pos.insert(0,'--Buscar--')
@@ -156,7 +157,39 @@ def app():
 
                 # Finalmente se muestra el radar y/o tabla de estadísticas para los jugadores seleccionados
                 radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
-                #radar_streamlit_escoger(df_radar, df_raw, posiciones[posicion], w)
 
+                v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
+                if 'arquero' not in posiciones[posicion]:
+                    v_esp = [dict_translate_players[var] for var in v]
+                else:
+                    v_esp = [dict_translate_gk[var] for var in v]
+                variables = st.multiselect('Seleccione por lo menos 3 variables que quiere observar',options=v_esp)
+                if 'arquero' not in posiciones[posicion]:
+                    variables = [dict_translate_players_reverse[v] for v in variables]
+                else:
+                    variables = [dict_translate_gk_reverse[v] for v in variables]
+                if len(variables)>=3:
+                    radar_streamlit_escoger(df_radar_final, df_raw_final, posiciones[posicion], w, variables)
+                else:
+                    st.write("""
+                    > Seleccione las variables que quiere observar.
+                    """)
         else:
             radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
+            
+            v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
+            if 'arquero' not in posiciones[posicion]:
+                v_esp = [dict_translate_players[var] for var in v]
+            else:
+                v_esp = [dict_translate_gk[var] for var in v]
+            variables = st.multiselect('Seleccione por lo menos 3 variables que quiere observar',options=v_esp)
+            if 'arquero' not in posiciones[posicion]:
+                variables = [dict_translate_players_reverse[v] for v in variables]
+            else:
+                variables = [dict_translate_gk_reverse[v] for v in variables]
+            if len(variables)>=3:
+                radar_streamlit_escoger(df_radar_final, df_raw_final, posiciones[posicion], w, variables)
+            else:
+                st.write("""
+                > Seleccione las variables que quiere observar.
+                """)
