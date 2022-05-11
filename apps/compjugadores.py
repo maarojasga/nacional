@@ -197,3 +197,4 @@ def app():
                 st.write("""
                 > Seleccione las variables que quiere observar.
                 """)
+                
