@@ -594,15 +594,20 @@ def table_streamlit(df, position):
             st.dataframe(df_table)
             download_button(df_table, f'ranking_{position}.xlsx', f'Descargar tabla', pickle_it=False)
 
-def radar_streamlit(df_radar, df_raw, position, w, N_variables):
+def radar_streamlit(df_radar, df_raw, df_tabla, position, w, N_variables):
     try:
         df_raw = df_raw[(df_raw['Season'].isin(list(df_radar['Season'].unique()))) &\
              (df_raw['League'].isin(list(df_radar['League'].unique()))) &\
                   (df_raw.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
+        df_tabla = df_tabla[(df_tabla['Season'].isin(list(df_radar['Season'].unique()))) &\
+             (df_tabla['League'].isin(list(df_radar['League'].unique()))) &\
+                  (df_tabla.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
         df_radar.set_index('League', append=True, inplace=True)
         df_raw.set_index('League', append=True, inplace=True)
+        df_tabla.set_index('League', append=True, inplace=True)
         df_radar.set_index('Season', append=True, inplace=True)
         df_raw.set_index('Season', append=True, inplace=True)
+        df_tabla.set_index('Season', append=True, inplace=True)
     except:
         pass
     fig_radar = plt.figure()
@@ -665,6 +670,7 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
     st.pyplot(fig_radar)
 
     df_raw = df_raw.loc[df_radar.index,variables]
+    df_tabla = df_tabla.loc[df_radar.index,variables]
     if 'arquero' not in position:
         df_od = pd.read_excel('variables_ad.xlsx', engine='openpyxl')
         attack_variables = df_od[(df_od['A/D o B'] == 'A') | (df_od['A/D o B'] == 'B')]['Variable'].to_list()
@@ -681,10 +687,12 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
                 df_radar_all.loc[i,'PCT promedio ofensivo'] = (row[attack_variables].sum()/len(row[attack_variables]))*100
                 df_radar_all.loc[i,'PCT promedio defensivo'] = (row[defense_variables].sum()/len(row[attack_variables]))*100
         df_raw.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
+        df_tabla.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
         df_radar.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
         df_radar_all.rename(columns={v: dict_translate_players[v] for v in all_variables}, inplace=True)
     else:
         df_raw.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
+        df_tabla.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
         df_radar.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
         df_radar_all.rename(columns={v: dict_translate_gk[v] for v in all_variables}, inplace=True)
     if len(df_radar) == 1:
@@ -752,20 +760,25 @@ def radar_streamlit(df_radar, df_raw, position, w, N_variables):
         download_button(df_radar_all, f'percentiles_of_def.xlsx', f'Descargar tabla', pickle_it=False)
     st.write("""
         ### Tabla de valores
-        > Totales acumulados por 90 minutos.
+        > Totales por temporada actual hasta ahora.
         """)
-    st.dataframe(df_raw)
-    download_button(df_raw, f'valores.xlsx', f'Descargar tabla', pickle_it=False)
+    st.dataframe(df_tabla)
+    download_button(df_tabla, f'valores.xlsx', f'Descargar tabla', pickle_it=False)
 
-def radar_streamlit_escoger(df_radar, df_raw, position, w, variables):
+def radar_streamlit_escoger(df_radar, df_raw, df_tabla, position, w, variables):
     try:
         df_raw = df_raw[(df_raw['Season'].isin(list(df_radar['Season'].unique()))) &\
              (df_raw['League'].isin(list(df_radar['League'].unique()))) &\
                   (df_raw.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
+        df_tabla = df_tabla[(df_raw['Season'].isin(list(df_radar['Season'].unique()))) &\
+             (df_tabla['League'].isin(list(df_radar['League'].unique()))) &\
+                  (df_tabla.index.get_level_values('Name').isin(df_radar.index.get_level_values('Name').unique().tolist()))]
         df_radar.set_index('League', append=True, inplace=True)
         df_raw.set_index('League', append=True, inplace=True)
+        df_tabla.set_index('League', append=True, inplace=True)
         df_radar.set_index('Season', append=True, inplace=True)
         df_raw.set_index('Season', append=True, inplace=True)
+        df_tabla.set_index('Season', append=True, inplace=True)
     except:
         pass
     fig_radar = plt.figure()
@@ -839,6 +852,7 @@ def radar_streamlit_escoger(df_radar, df_raw, position, w, variables):
         st.pyplot(fig_radar)
 
         df_raw = df_raw.loc[df_radar.index,variables]
+        df_tabla = df_tabla.loc[df_radar.index,variables]
         if 'arquero' not in position:
             df_od = pd.read_excel('variables_ad.xlsx', engine='openpyxl')
             attack_variables = df_od[(df_od['A/D o B'] == 'A') | (df_od['A/D o B'] == 'B')]['Variable'].to_list()
@@ -855,10 +869,12 @@ def radar_streamlit_escoger(df_radar, df_raw, position, w, variables):
                     df_radar_all.loc[i,'PCT promedio ofensivo'] = (row[attack_variables].sum()/len(row[attack_variables]))*100
                     df_radar_all.loc[i,'PCT promedio defensivo'] = (row[defense_variables].sum()/len(row[attack_variables]))*100
             df_raw.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
+            df_tabla.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
             df_radar.rename(columns={v: dict_translate_players[v] for v in variables}, inplace=True)
             df_radar_all.rename(columns={v: dict_translate_players[v] for v in all_variables}, inplace=True)
         else:
             df_raw.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
+            df_tabla.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
             df_radar.rename(columns={v: dict_translate_gk[v] for v in variables}, inplace=True)
             df_radar_all.rename(columns={v: dict_translate_gk[v] for v in all_variables}, inplace=True)
         if len(df_radar) == 1:
@@ -927,10 +943,10 @@ def radar_streamlit_escoger(df_radar, df_raw, position, w, variables):
             download_button(df_radar_all, f'percentiles_of_def.xlsx', f'Descargar tabla', pickle_it=False)
         st.write("""
             ### Tabla de valores
-            > Totales acumulados por 90 minutos.
+            > Totales por temporada actual hasta ahora.
             """)
-        st.dataframe(df_raw)
-        download_button(df_raw, f'valores.xlsx', f'Descargar tabla', pickle_it=False)
+        st.dataframe(df_tabla)
+        download_button(df_tabla, f'valores.xlsx', f'Descargar tabla', pickle_it=False)
     else:
         st.write("""
             > Seleccione las variables que quiere observar.

@@ -156,7 +156,7 @@ def app():
                 w.rename(index = {'xG per shot taken':'xG per shot'}, inplace = True)
 
                 # Finalmente se muestra el radar y/o tabla de estadísticas para los jugadores seleccionados
-                radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
+                radar_streamlit(df_radar_final, df_raw_final, df_raw_sl, posiciones[posicion], w, N_variables)
 
                 #v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
                 v = w.sort_values(ascending = False).index.tolist()
