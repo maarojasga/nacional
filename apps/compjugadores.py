@@ -158,12 +158,15 @@ def app():
                 # Finalmente se muestra el radar y/o tabla de estadísticas para los jugadores seleccionados
                 radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
 
-                v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
+                #v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
+                v = w.sort_values(ascending = False).index.tolist()
                 if 'arquero' not in posiciones[posicion]:
                     v_esp = [dict_translate_players[var] for var in v]
                 else:
                     v_esp = [dict_translate_gk[var] for var in v]
+                
                 variables = st.multiselect('Seleccione por lo menos 3 variables que quiere observar',options=v_esp)
+                
                 if 'arquero' not in posiciones[posicion]:
                     variables = [dict_translate_players_reverse[v] for v in variables]
                 else:
@@ -177,7 +180,8 @@ def app():
         else:
             radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
             
-            v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
+            #v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
+            v = w.sort_values(ascending = False).index.tolist()
             if 'arquero' not in posiciones[posicion]:
                 v_esp = [dict_translate_players[var] for var in v]
             else:
