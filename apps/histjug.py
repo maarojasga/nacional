@@ -25,7 +25,7 @@ def app():
     
     def search_options(n, df_in):
         df_temp = copy.deepcopy(df_in)
-        with st.beta_expander(f'Buscar jugador {n}'):
+        with st.expander(f'Buscar jugador {n}'):
             list_seasons = sorted(list(df_temp['Season'].unique()), reverse=True)
             season = st.selectbox('Escriba o seleccione la temporada', list_seasons, key=str(n))
             df_temp = df_temp[df_temp['Season'].isin([season])]
@@ -61,7 +61,7 @@ def app():
                 position = list_weights_keys[list_weights.index(position)]
                 w = weights(position)
                 w.rename(index = {'xG per shot taken':'xG per shot'}, inplace = True)
-        with st.beta_expander('Filtros adicionales'):
+        with st.expander('Filtros adicionales'):
             list_nationality = sorted(list({name for a in df_radar.index.get_level_values('Nationality').unique().tolist() for name in a.split(', ')}))
             list_nationality.insert(0, '--All--')
             nationality = st.multiselect('Escriba o seleccione la(s) nacionalidad(es)', list_nationality, '--All--')

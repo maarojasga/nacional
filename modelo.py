@@ -1167,6 +1167,7 @@ def dream_team(tactic, df, df_gk, season, leagues, min_minutes, nationality, age
         st.info('No se encontraron arqueros para los filtros seleccionados')
     if len(df_team_table)!=0:
         df_team_table.rename(columns={'Tactic position':'Posición'}, inplace=True)
+        df_team_table = df_team_table.drop(columns=['National team '])
         st.dataframe(df_team_table)
         download_button(df_team_table, f'percentiles_equipo.xlsx', f'Descargar tabla', pickle_it=False)
     else:
@@ -1293,7 +1294,9 @@ def history_streamlit(df_radar, df_raw, w, position):
         st.pyplot(fig_age)
     # print(df_rad)
     # print(df_rad_raw)
-    radar_streamlit(df_rad, df_rad_raw, position, w, N_variables)
+    df_rad_raw_p = copy.deepcopy(df_rad_raw)
+    percentile(df_rad_raw_p)
+    radar_streamlit(df_rad, df_rad_raw_p, df_rad_raw, position, w, N_variables)
 
 equipo_per90=['xG (Expected goals)','Goals',"Opponent's xG",'Expected points','Challenges won','Air challenges won','Successful actions','Accurate passes','Crosses accurate','Lost balls','xG (Expected goals)','Goals','Chances','Shots','Shots on target','xG per shot','xG per goal','Key passes','Attacking challenges won','Dribbles successful',
 "Opponent's xG",'Defensive challenges won','Tackles successful','Ball interceptions','Free ball pick ups','Ball recoveries',"Ball recoveries in opponent's half",'Team pressing successful',
