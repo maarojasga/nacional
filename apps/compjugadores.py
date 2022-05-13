@@ -1,7 +1,7 @@
 import pdb
 from modelo import *
 import streamlit as st
-
+##comparar jugadores
 dict_positions = {'Central':'CD',
                   'Lateral Derecho':'RD',
                   'Lateral Izquierdo':'LD',
@@ -197,4 +197,5 @@ def app():
                 st.write("""
                 > Seleccione las variables que quiere observar.
                 """)
+
                 
