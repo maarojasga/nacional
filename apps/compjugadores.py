@@ -172,13 +172,13 @@ def app():
                 else:
                     variables = [dict_translate_gk_reverse[v] for v in variables]
                 if len(variables)>=3:
-                    radar_streamlit_escoger(df_radar_final, df_raw_final, posiciones[posicion], w, variables)
+                    radar_streamlit_escoger(df_radar_final, df_raw_final,df_raw_sl, posiciones[posicion], w, variables)
                 else:
                     st.write("""
                     > Seleccione las variables que quiere observar.
                     """)
         else:
-            radar_streamlit(df_radar_final, df_raw_final, posiciones[posicion], w, N_variables)
+            radar_streamlit(df_radar_final, df_raw_final, df_raw_sl, posiciones[posicion], w, N_variables)
             
             #v = w[list(dict_var_rad[posiciones[posicion]])].sort_values(ascending = False).index.tolist()
             v = w.sort_values(ascending = False).index.tolist()
@@ -192,7 +192,7 @@ def app():
             else:
                 variables = [dict_translate_gk_reverse[v] for v in variables]
             if len(variables)>=3:
-                radar_streamlit_escoger(df_radar_final, df_raw_final, posiciones[posicion], w, variables)
+                radar_streamlit_escoger(df_radar_final, df_raw_final,df_raw_sl, posiciones[posicion], w, variables)
             else:
                 st.write("""
                 > Seleccione las variables que quiere observar.
