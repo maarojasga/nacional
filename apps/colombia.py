@@ -36,7 +36,7 @@ def app():
         df = df[~df['League'].isin(['---'])]
         df = df[~df.index.get_level_values('Nationality').str.contains('0', na=False)]
         df = df[~df.index.get_level_values('Team').str.contains('0', na=False)]
-        df = df[df.index.get_level_values('Nationality').str.contains('Colombia', na=False)]
+        df = df[df.index.get_level_values('Nationality').str.contains('Colombia*', na=False)]
         st.write("""## Jugadores a incluir en el ranking""")
         list_seasons = sorted(list(df['Season'].unique()), reverse=True)
         season = st.selectbox('Escriba o seleccione la temporada', list_seasons)
@@ -128,4 +128,4 @@ def app():
                 N_variables = st.slider('Número de variables en radar', 5,number_var)
             
             if len(df_radar)!=0:
-                radar_streamlit(df_radar, df_raw, posiciones[posicion], w, N_variables)
+                radar_streamlit(df_radar, df, df_raw, posiciones[posicion], w, N_variables)

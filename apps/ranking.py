@@ -128,4 +128,4 @@ def app():
                 N_variables = st.slider('Número de variables en radar', 5,number_var)
             
             if len(df_radar)!=0:
-                radar_streamlit(df_radar, df_raw, posiciones[posicion], w, N_variables)
+                radar_streamlit(df_radar, df, df_raw, posiciones[posicion], w, N_variables)
