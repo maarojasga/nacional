@@ -48,7 +48,6 @@ for lig in ligas.keys():
         print(filej.format(lig))
         j = pd.read_excel(filej.format(lig),na_values='-')
         j.rename(columns={'Unnamed: 0':'Number','Unnamed: 1':'Name','Сhances created':'Chances created','Penalties\n scored':'Penalties scored',"Opponent's penalties saved, %":"Penalties saved, %","Opponent's penalties conceded":"Goals conceded - Penalties","Opponent's penalties saved":"Penalties saved"},inplace=True)
-        pdb.set_trace()
         j['League']=ligas[lig]
         if (lig=='Uruguay.PrimeraDivisionClausura'):
             j['Season']=20212
