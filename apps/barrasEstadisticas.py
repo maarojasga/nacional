@@ -301,5 +301,3 @@ def app():
 
             disp_df=ranking.loc[equipo,['Top Goles anotados','Top Goles concedidos','Top Net xG (Goles - xG)','Top porteria 0','Top xG','Top xG Concedido']]
             st.dataframe(disp_df.astype(int))
-    
-    
