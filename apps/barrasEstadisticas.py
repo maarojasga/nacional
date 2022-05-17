@@ -195,7 +195,6 @@ def app():
             except:
                 temp['jornada']=int(partidos['round_id'].max())
             df=df.append(temp,ignore_index=True)
-            
 
         tiros=['Shot on target', 'Shot into the bar/post', 'Shot blocked', 'Shot blocked by field player', 'Goal', 'Wide shot']
         x_tot=105
