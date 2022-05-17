@@ -3,6 +3,7 @@ import pandas as pd
 from api import *
 from matplotlib.gridspec import GridSpec
 import time 
+from stqdm import stqdm
 color_xpecta='#7ee1bd'
 
 nombres_columnas={
@@ -182,7 +183,7 @@ def app():
         partidos=partidos[partidos['available_events']==True]
         df=pd.DataFrame()
 
-        for idx in partidos['id'].unique():
+        for idx in stqdm(partidos['id'].unique()):
             try:
                 temp=pd.read_csv(f'DataApi/{idx}.csv')
             except:
