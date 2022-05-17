@@ -296,7 +296,6 @@ def app():
             plt.suptitle(f'Variables de juego {equipo}')
             ax1.legend(bbox_to_anchor=(1.04,0.5), loc="center left")
 
-
             st.pyplot(fig)
 
             disp_df=ranking.loc[equipo,['Top Goles anotados','Top Goles concedidos','Top Net xG (Goles - xG)','Top porteria 0','Top xG','Top xG Concedido']]
