@@ -129,7 +129,7 @@ def app():
         if df_selec_temp['Minutes played'].min()<min_minutes:
             df_raw_sl= df_raw_sl.append(df_selec_temp[df_selec_temp['Minutes played']<min_minutes])
 
-        if not (df_selec_temp.index.get_level_values('Name').unique().isin(df_raw_sl.index.get_level_values('Name').unique().to_list())[0]):
+        if not (df_selec_temp.index.get_level_values('Name').isin(df_raw_sl.index.get_level_values('Name').unique().to_list())[0]):
             df_raw_sl = df_raw_sl.append(df_selec_temp)
 
         df_raw_sl = df_raw_sl.drop_duplicates()
