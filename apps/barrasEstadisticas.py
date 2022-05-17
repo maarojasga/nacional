@@ -130,6 +130,7 @@ def barra_eq(df_f,equipo,columna):
     plt.xlim((xop_min2,xop_max2))
     plt.legend(bbox_to_anchor=(1.04,0.5), loc="center left")
     st.pyplot(fig2)
+
 def barra_op(df_f,equipo,columna):
     fig2=plt.figure(figsize=(10,2))
     per25=np.percentile(df_f.groupby('team_name').mean()[columna],25)
@@ -172,7 +173,6 @@ def app():
         # Estadísticas
         """
     )
-    
     
     liga = st.selectbox("Seleccione la liga de la cual desea ver los equipos",list(ligas.keys()))
     if liga!='Seleccionar':
