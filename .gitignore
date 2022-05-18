@@ -1,3 +1,7 @@
 # Ignore Mac system files
 __pycache__
 apps/__pychache__
+
+.DS_Store
+Data/.DS_Store
+Data/database_builder/.DS_Store
