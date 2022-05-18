@@ -18,7 +18,7 @@ app.add_app("DIFERENCIA XG - JUGADORES",xG.app)
 app.add_app("DIFERENCIA XG - EQUIPOS",xgEquipos.app)
 #app.add_app("ESTADÍSTICAS",barras.app)
 app.add_app("MAPA DE TIROS",Tiros.app)
-app.add_app("BARRAS ESTADÍSTICAS",barrasEstadisticas.app)
+#app.add_app("BARRAS ESTADÍSTICAS",barrasEstadisticas.app)
 app.add_app("PROBABILIDADES ",probabilidades.app)
 
 
